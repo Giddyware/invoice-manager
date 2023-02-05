@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* GLOBAL STYLES */
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: auto;
+}
+
+#root {
+  /*
+    Create a stacking context, without a z-index.
+    This ensures that all portal content (modals and tooltips) will
+    float above the app.
+  */
+  isolation: isolate;
+}
+
+html,
+body,
+#root {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+html {
+  padding: 0;
+  margin: 0;
+}
+
+@font-face {
+  font-family: "Spartan-Light";
+  src: url("./fonts/League_Spartan/LeagueSpartan-Light.ttf");
+}
+@font-face {
+  font-family: "Spartan-Regular";
+  src: url("./fonts/League_Spartan/LeagueSpartan-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Spartan-Medium";
+  src: url("./fonts/League_Spartan/LeagueSpartan-Medium.ttf");
+}
+
+@font-face {
+  font-family: "Spartan-Bold";
+  src: url("./fonts/League_Spartan/LeagueSpartan-Bold.ttf");
+}
+
+max-width-wrapper-m {
+  position: relative;
+  max-width: min(100%, calc(1200px + 32px * 2));
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+svg {
+  display: inline;
+}
