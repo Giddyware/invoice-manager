@@ -13,10 +13,10 @@ const Header = () => {
         />
         <Logo />
       </div>
-      <div className="p-[30px]">
+      <div className="p-[24px] p-b-[10px]">
         <Icon className="" id="moon-icon" color="" size="" strokeWidth={""} />
       </div>
-      <div className="border-l-4 border-indigo-500"></div>
+      <div className="border-l-[0.01px] h-[72px] border-[#494E6E]"></div>
       <div className="p-[24px]">
         <img
           className="rounded-full w-[32px]"
