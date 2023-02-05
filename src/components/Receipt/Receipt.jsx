@@ -8,7 +8,6 @@ const classes = {
     pending: "bg-warning-light text-warning",
     draft: "bg-draft-light text-draft",
   },
-  //   size: "",
 };
 
 const Receipt = ({ status = "", children, ...props }) => {

@@ -2,7 +2,6 @@ import Card from "../../components/Card/Card";
 import Header from "../../components/Header/Header";
 import Nav from "../../components/Nav/Nav";
 import Clients from "../../constants/data";
-// import Nav from "../../components/Nav";
 
 const Home = () => {
   return (
