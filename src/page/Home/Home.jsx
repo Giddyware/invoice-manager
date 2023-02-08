@@ -5,9 +5,9 @@ import Clients from "../../constants/data";
 
 const Home = () => {
   return (
-    <div className="flex flex-col h-screen bg-gray-light">
+    <div className="flex flex-col bg-gray-light lg:flex-row">
       <Header />
-      <main className="p-[24px]">
+      <main className="p-[24px] lg:flex-1">
         <Nav />
         <div className="mt-[32px] mb-[80px]">
           {Clients.map((client) => (

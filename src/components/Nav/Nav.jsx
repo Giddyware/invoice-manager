@@ -6,7 +6,8 @@ const Nav = () => {
       <div>
         <h1 className="font-bold text-[20px]">Invoices</h1>
         <p className="text-[gray] text-[12px]">
-          <span className="mr-1">7</span>invoices
+          <span className="mr-1 md:hidden">7 invoices</span>
+          <span className="hidden mr-1 md:inline">There are 7 total invoices</span>
         </p>
       </div>
       <div className="flex items-baseline">
@@ -22,7 +23,7 @@ const Nav = () => {
           className="text-offWhite rounded-full items-center justify-between flex bg-primary ml-[18px] p-[10px]"
           type="submit"
         >
-          <span className="pl-1 pr-1 pb-1 mr-3 rounded-full bg-offWhite">
+          <span className="pb-1 pl-1 pr-1 mr-3 rounded-full bg-offWhite">
             <Icon
               id="plus-icon"
               color={"hsl(252deg, 94%, 67%)"}

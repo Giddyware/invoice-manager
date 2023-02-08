@@ -1,3 +1,4 @@
+import Icon from "../Icon/Icon";
 import Receipt from "../Receipt/Receipt";
 
 const Card = ({ id, clientName, paymentDue, total, status }) => {
@@ -19,6 +20,7 @@ const Card = ({ id, clientName, paymentDue, total, status }) => {
           <p className="ml-[6px] capitalize">{status}</p>
         </Receipt>
       </div>
+      <Icon className="hidden md:inline md:ml-[20px]" id="arrow-down" />
     </div>
   );
 };
