@@ -8,12 +8,18 @@ const Card = ({ id, clientName, paymentDue, total, status }) => {
         <h2 className="flex-1 text-sm font-bold text-gray-dark-63 md:mt-1">
           #<span className="text-black">{id}</span>
         </h2>
-        <p className="md:flex-1">{paymentDue}</p>
+        <p className="md:flex-1 ">Due {paymentDue}</p>
         <h2 className="text-lg font-bold md:flex-1">
           £ <span>{total}</span>
         </h2>
+
+        <p className="text-gray-dark-61 md:flex-1">{clientName}</p>
+
+        <Receipt className='' status={status}>
+          <p className="ml-[6px] capitalize">{status}</p>
+        </Receipt>
       </div>
-      <div className="self-end md:flex md:flex-1 md:items-center">
+      <div className="md:hidden self-end md:flex md:flex-1 md:items-center">
         <p className="text-gray-dark-61 md:flex-1">{clientName}</p>
 
         <Receipt status={status}>
