@@ -3,9 +3,6 @@ import { images } from "../../constants";
 import { FiPlus } from "react-icons/fi";
 import { AiFillCiCircle, AiOutlineArrowDown } from "react-icons/ai";
 
-
-
-
 const icons = {
   "arrow-down": images.arrowDownIcon,
   // "arrow-down": AiOutlineArrowDown,
@@ -31,6 +28,8 @@ const Icon = ({ id, color, size, strokeWidth, ...delegated }) => {
   return (
     <div strokeWidth={strokeWidth} {...delegated}>
       <Component
+        className="block"
+        // className=`block stroke-width: ${(p) => p.strokeWidth}px`
         strokeWidth={strokeWidth}
         color={color}
         fill={color}
