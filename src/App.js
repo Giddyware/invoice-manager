@@ -1,11 +1,13 @@
 import Empty from "./page/Empty/Empty";
 import Home from "./page/Home";
+import EditInvoice from "./page/EditInvoice";
 
 function App() {
   return (
     <div className="w-[max-width-wrapper-m] min-h-full">
       {/* <Home /> */}
-      <Empty />
+      {/* <Empty /> */}
+      <EditInvoice />
     </div>
   );
 }
