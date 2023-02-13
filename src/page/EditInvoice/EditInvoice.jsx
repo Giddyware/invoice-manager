@@ -8,7 +8,7 @@ const EditInvoice = () => {
     <div className="flex flex-col bg-white-light lg:flex-row">
       <Header />
 
-      <main className="px-[24px] h-screen py-[32px] md:py-[56px] md:px-[48px] lg:flex-1 lg:px-[140px] lg:py-[72px]">
+      <main className="px-[24px] h-full py-[32px] md:py-[56px] md:px-[48px] lg:flex-1 lg:px-[140px] lg:py-[72px]">
         <div className="flex items-baseline">
           <Icon id="arrow-left" />
           <h3 className="ml-[24px] font-bold text-[12px]">Go back</h3>
