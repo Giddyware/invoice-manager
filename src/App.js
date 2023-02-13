@@ -4,7 +4,7 @@ import EditInvoice from "./page/EditInvoice";
 
 function App() {
   return (
-    <div className="w-[max-width-wrapper-m] min-h-full">
+    <div className="w-[max-width-wrapper-m] h-full">
       {/* <Home /> */}
       {/* <Empty /> */}
       <EditInvoice />
