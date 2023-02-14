@@ -29,8 +29,9 @@ module.exports = {
       "gray-dark-61": "hsl(231deg, 20%, 61%)",
       gray: "hsl(223deg, 73%, 93%)",
       "gray-light": "hsl(0deg, 0%, 95%)",
+      // "gray-light-59": "hsl(0deg, 0%, 59%)",
 
-      urgent: "hsl(236deg, 87%, 63%)",
+      urgent: "hsl(0deg, 80%, 63%)",
       "urgent-light": "hsl(255deg, 151%, 151%)",
 
       warning: "hsl(34deg, 100%, 50%)",

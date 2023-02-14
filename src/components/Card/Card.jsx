@@ -13,13 +13,13 @@ const Card = ({ id, clientName, paymentDue, total, status }) => {
           £ <span>{total}</span>
         </h2>
 
-        <p className="text-gray-dark-61 md:flex-1">{clientName}</p>
+        <p className="mb-[28px] text-gray-dark-61 md:flex-1">{clientName}</p>
 
         <Receipt className='' status={status}>
           <p className="ml-[6px] capitalize">{status}</p>
         </Receipt>
       </div>
-      <div className="md:hidden self-end md:flex md:flex-1 md:items-center">
+      <div className="md:hidden self-end md:flex-1 md:items-center">
         <p className="text-gray-dark-61 md:flex-1">{clientName}</p>
 
         <Receipt status={status}>

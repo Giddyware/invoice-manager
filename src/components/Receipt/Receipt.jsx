@@ -2,7 +2,7 @@ import classNames from "classnames";
 import CircleDot from "../CircleDot/CircleDot";
 
 const classes = {
-  base: "flex font-bold mt-7 p-2 rounded-[8px] md:mt-0",
+  base: "flex font-bold p-2 rounded-[8px] md:mt-0",
   status: {
     paid: "bg-success-light text-success",
     pending: "bg-warning-light text-warning",
