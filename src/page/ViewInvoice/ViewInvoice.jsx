@@ -22,10 +22,23 @@ const ViewInvoice = () => {
           <h3 className="ml-[24px] font-bold text-[12px]">Go back</h3>
         </div>
         <div className="mx-[24px] mt-[32px] mb-[16px] px-[24px] py-[24px]  rounded-[8px] flex items-baseline justify-between bg-[white]">
-          <h2 className="text-gray-dark-63">status</h2>
-          <Receipt status="pending">
-            <p className="ml-[6px] capitalize">{"pending"}</p>
-          </Receipt>
+          <div className="flex items-baseline justify-between flex-1 md:flex-shrink-0 md:flex-grow-0">
+            <h2 className="text-gray-dark-63 md:mr-[16px]">status</h2>
+            <Receipt status="pending">
+              <p className="ml-[6px] capitalize">{"pending"}</p>
+            </Receipt>
+          </div>
+          <div className="bg-[white] px-[24px] text-[white] sm:hidden md:block">
+            <button className="px-[24px] py-[16px] md:mr-[8px] bg-draft-light rounded-full capitalize text-primary-light">
+              edit
+            </button>
+            <button className="px-[24px] py-[16px] md:mr-[8px] rounded-full bg-urgent capitalize">
+              delete
+            </button>
+            <button className="px-[24px] py-[16px] rounded-full bg-primary capitalize">
+              mark as paid
+            </button>
+          </div>
         </div>
 
         <div className="flex flex-col rounded-[8px] m-[24px] px-[24px] pb-[24px] bg-[white] text-sm text-gray-dark-63">
@@ -99,7 +112,7 @@ const ViewInvoice = () => {
         </div>
       </main>
 
-      <div className="mt-[56px] bg-[white] px-[24px] py-[22px] flex justify-between items-center text-[white] md:none">
+      <div className="mt-[56px] bg-[white] px-[24px] py-[22px] flex justify-between items-center text-[white] md:hidden">
         <button className="px-[24px] py-[16px] bg-draft-light rounded-full capitalize text-primary-light">
           edit
         </button>
