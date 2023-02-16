@@ -1,7 +1,7 @@
 import classNames from "classnames";
 
 const classes = {
-  base: "w-2 h-2 rounded-full inline-block mt-2",
+  base: "w-2 h-2 rounded-full inline-block",
   status: {
     paid: "bg-success",
     pending: "bg-warning",

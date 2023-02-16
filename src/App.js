@@ -6,10 +6,10 @@ import ViewInvoice from "./page/ViewInvoice/ViewInvoice";
 function App() {
   return (
     <div className="w-[max-width-wrapper-m] h-full">
-      {/* <Home /> */}
+      <Home />
       {/* <Empty /> */}
       {/* <EditInvoice /> */}
-      <ViewInvoice />
+      {/* <ViewInvoice /> */}
     </div>
   );
 }

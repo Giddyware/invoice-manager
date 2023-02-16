@@ -15,11 +15,11 @@ const Card = ({ id, clientName, paymentDue, total, status }) => {
 
         <p className="mb-[28px] text-gray-dark-61 md:flex-1">{clientName}</p>
 
-        <Receipt className='' status={status}>
+        <Receipt className='hidden' status={status}>
           <p className="ml-[6px] capitalize">{status}</p>
         </Receipt>
       </div>
-      <div className="md:hidden self-end md:flex-1 md:items-center">
+      <div className="flex flex-col justify-between md:hidden md:flex-1 md:items-center">
         <p className="text-gray-dark-61 md:flex-1">{clientName}</p>
 
         <Receipt status={status}>

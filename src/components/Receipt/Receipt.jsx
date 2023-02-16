@@ -2,7 +2,7 @@ import classNames from "classnames";
 import CircleDot from "../CircleDot/CircleDot";
 
 const classes = {
-  base: "flex font-bold p-2 rounded-[8px] md:mt-0",
+  base: "flex items-center justify-center w-[104px] font-bold p-2 rounded-[8px] md:mt-0",
   status: {
     paid: "bg-success-light text-success",
     pending: "bg-warning-light text-warning",
@@ -10,15 +10,16 @@ const classes = {
   },
 };
 
-const Receipt = ({ status = "", children, ...props }) => {
+const Receipt = ({ status = "pending", children, ...props }) => {
   return (
     <div
       className={classNames(
         `${classes.base} 
         ${classes.status[status]}`
-      )}
-      {...props}
-    >
+        )}
+        {...props.className}
+        >
+     
       <CircleDot status={status} />
       {children}
     </div>
