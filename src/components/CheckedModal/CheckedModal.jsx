@@ -1,7 +1,7 @@
 import { DialogContent } from "@reach/dialog";
 import { useState } from "react";
 
-import "@reach/checkbox/styles.css";
+
 
 const CheckedModal = ({ close, showDialog }) => {
   const [checked, setChecked] = useState(true);
