@@ -1,17 +1,37 @@
+import { useState } from "react";
+import CheckedModal from "../CheckedModal/CheckedModal";
 import Icon from "../Icon/Icon";
 
 const Nav = () => {
+  const [showCheckedModal, setCheckedModal] = useState(false);
+
+  const openCheckedModal = () => setCheckedModal(true);
+  const closeCheckedModal = () => setCheckedModal(false);
+
   return (
     <div className="flex items-baseline justify-between mt-1">
       <div>
         <h1 className="font-bold text-[20px]">Invoices</h1>
         <p className="text-[gray] text-[12px]">
           <span className="mr-1 md:hidden">7 invoices</span>
-          <span className="hidden mr-1 md:inline">There are 7 total invoices</span>
+          <span className="hidden mr-1 md:inline">
+            There are 7 total invoices
+          </span>
         </p>
       </div>
       <div className="flex items-baseline">
-        <h2 className="font-bold mr-[18px]">
+        <h2
+          onMouseOver={openCheckedModal}
+          onMouseOut={closeCheckedModal}
+          className="font-bold mr-[18px] hover:cursor-pointer"
+        >
+          {showCheckedModal && (
+            <CheckedModal
+              showDialog={showCheckedModal}
+              close={closeCheckedModal}
+              open={openCheckedModal}
+            />
+          )}
           Filter <span className="hidden pl-1 md:inline">by status</span>
         </h2>
         <div>

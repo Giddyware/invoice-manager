@@ -1,15 +1,22 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Icon from "../../components/Icon/Icon";
 
 const EditInvoice = () => {
   const [date, setDate] = useState(0);
+
+  const navigate = useNavigate();
+
   return (
     <div className="flex flex-col bg-white-light lg:flex-row">
       <Header />
 
       <main className="px-[24px] h-full py-[32px] md:py-[56px] md:px-[48px] lg:flex-1 lg:px-[140px] lg:py-[72px]">
-        <div className="flex items-baseline">
+        <div
+          onClick={() => navigate(-1)}
+          className="flex items-baseline hover:cursor-pointer w-fit"
+        >
           <Icon id="arrow-left" />
           <h3 className="ml-[24px] font-bold text-[12px]">Go back</h3>
         </div>

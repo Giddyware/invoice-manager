@@ -1,6 +1,12 @@
+import { Link, useHistory, useNavigate } from "react-router-dom";
+import Button from "../../components/Button/Button";
 import Header from "../../components/Header/Header";
 import Icon from "../../components/Icon/Icon";
+import SideModal from "../../components/SlideModal/SlideModal";
 import Receipt from "../../components/Receipt/Receipt";
+import EditInvoice from "../EditInvoice";
+import { useState } from "react";
+import CenterModal from "../../components/CenterModal/CenterModal";
 
 const invoiceDetail = [
   {
@@ -13,11 +19,26 @@ const invoiceDetail = [
 ];
 
 const ViewInvoice = () => {
+  // CenterModal
+  const [showCenterModal, setCenterModal] = useState(false);
+
+  const openCenterModal = () => setCenterModal(true);
+  const closeCenterModal = () => setCenterModal(false);
+
+  const [showSideModal, setShowSideModal] = useState(false);
+
+  const openSideModal = () => setShowSideModal(true);
+  const closeSideModal = () => setShowSideModal(false);
+
+  const navigate = useNavigate();
   return (
     <div className="flex flex-col bg-gray-light lg:flex-row">
       <Header />
       <main className="px-[24px] h-full py-[32px] md:py-[56px] md:px-[48px] lg:flex-1 lg:px-[140px] lg:py-[72px]">
-        <div className="flex items-baseline">
+        <div
+          onClick={() => navigate(-1)}
+          className="flex items-baseline hover:cursor-pointer w-fit"
+        >
           <Icon id="arrow-left" />
           <h3 className="ml-[24px] font-bold text-[12px]">Go back</h3>
         </div>
@@ -28,14 +49,19 @@ const ViewInvoice = () => {
               <p className="ml-[6px] capitalize">{"pending"}</p>
             </Receipt>
           </div>
-          <div className="bg-[white] px-[24px] text-[white] sm:hidden md:block">
-            <button className="px-[24px] py-[16px] md:mr-[8px] bg-draft-light rounded-full capitalize text-primary-light">
-              edit
-            </button>
-            <button className="px-[24px] py-[16px] md:mr-[8px] rounded-full bg-urgent capitalize">
+          <div className="font-bold text-[12px] bg-[white] px-[24px] text-[white] sm:hidden md:block">
+            <Link to="/edit-invoice">
+              <button className="px-[24px] py-[16px] md:mr-[8px] bg-draft-light rounded-full capitalize text-primary-light hover:bg-gray">
+                edit
+              </button>
+            </Link>
+            <button
+              onClick={openCenterModal}
+              className="px-[24px] py-[16px] md:mr-[8px] rounded-full bg-urgent capitalize  hover:bg-urgent-light"
+            >
               delete
             </button>
-            <button className="px-[24px] py-[16px] rounded-full bg-primary capitalize">
+            <button className="px-[24px] py-[16px] rounded-full bg-primary capitalize hover:bg-primary-light">
               mark as paid
             </button>
           </div>
@@ -112,17 +138,38 @@ const ViewInvoice = () => {
         </div>
       </main>
 
-      <div className="mt-[56px] bg-[white] px-[24px] py-[22px] flex justify-between items-center text-[white] md:hidden">
-        <button className="px-[24px] py-[16px] bg-draft-light rounded-full capitalize text-primary-light">
-          edit
-        </button>
-        <button className="px-[24px] py-[16px] rounded-full bg-urgent capitalize">
+      <div className="font-bold text-[12px] mt-[56px] bg-[white] px-[24px] py-[22px] flex justify-between items-center text-[white] md:hidden">
+        <Link to="/edit-invoice" onClick={openSideModal}>
+          <button className="px-[24px] py-[16px] bg-draft-light rounded-full capitalize text-primary-light">
+            edit
+          </button>
+        </Link>
+        <button
+          onClick={openCenterModal}
+          className="px-[24px] py-[16px] rounded-full bg-urgent capitalize"
+        >
           delete
         </button>
         <button className="px-[24px] py-[16px] rounded-full bg-primary capitalize">
           mark as paid
         </button>
+
+        {/* <Button>hello</Button> */}
       </div>
+
+      <CenterModal
+        open={openCenterModal}
+        close={closeCenterModal}
+        showDialog={showCenterModal}
+      />
+
+      <SideModal
+        showSideModal={showSideModal}
+        open={openSideModal}
+        close={closeSideModal}
+      >
+        <EditInvoice />
+      </SideModal>
     </div>
   );
 };

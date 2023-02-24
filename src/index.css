@@ -65,3 +65,7 @@ max-width-wrapper-m {
 svg {
   display: inline;
 }
+
+:root {
+  --reach-dialog: 1;
+}

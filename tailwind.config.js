@@ -32,7 +32,7 @@ module.exports = {
       // "gray-light-59": "hsl(0deg, 0%, 59%)",
 
       urgent: "hsl(0deg, 80%, 63%)",
-      "urgent-light": "hsl(255deg, 151%, 151%)",
+      "urgent-light": "hsl(0deg, 100%, 80%)",
 
       warning: "hsl(34deg, 100%, 50%)",
       "warning-light": "hsl(36deg, 100%, 97%)",

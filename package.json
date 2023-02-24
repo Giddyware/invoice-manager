@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "@reach/dialog": "^0.18.0",
+    "@reach/tabs": "^0.18.0",
+    "@reach/visually-hidden": "^0.18.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
