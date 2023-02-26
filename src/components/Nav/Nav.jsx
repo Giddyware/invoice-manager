@@ -40,10 +40,10 @@ const Nav = () => {
 
         <button
           aria-label="Activate dark mode"
-          className="text-offWhite rounded-full items-center justify-between flex bg-primary ml-[18px] p-[10px]"
+          className="text-offWhite rounded-full items-center justify-between flex bg-primary ml-[18px] p-[10px] hover:bg-primary-light"
           type="submit"
         >
-          <span className="pb-1 pl-1 pr-1 mr-3 rounded-full bg-offWhite">
+          <span className="p-1 mr-3 rounded-full bg-offWhite">
             <Icon
               id="plus-icon"
               color={"hsl(252deg, 94%, 67%)"}

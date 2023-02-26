@@ -1,10 +1,16 @@
 import { DialogContent } from "@reach/dialog";
 import { useState } from "react";
-
-
+import CheckboxSelect from "../CheckboxSelect/CheckboxSelect";
 
 const CheckedModal = ({ close, showDialog }) => {
   const [checked, setChecked] = useState(true);
+
+  const options = [
+    { label: "Draft", value: "draft" },
+    { label: "Pending", value: "pending" },
+    { label: "Paid", value: "paid" },
+  ];
+
   return (
     <div className="absolute w-[192px] drop-shadow-lg">
       <DialogContent
@@ -13,10 +19,13 @@ const CheckedModal = ({ close, showDialog }) => {
           borderRadius: "8px",
           paddingBottom: "24px",
           paddingLeft: "24px",
-          paddingTop: "24px",
+          paddingTop: "1px",
+          position: "relative",
+          left: "-46px",
+          top: "-34px",
         }}
       >
-        <ul
+        {/* <ul
           className="overflow-y-auto text-sm text-gray-700 dark:text-gray-200"
           aria-labelledby="dropdownPickStatus"
         >
@@ -26,7 +35,7 @@ const CheckedModal = ({ close, showDialog }) => {
                 id="checkbox-item-11"
                 type="checkbox"
                 value=""
-                class="w-4 h-4 text-primary-light bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-primary-light dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                class="w-4 h-4 text-primary-light bg-gray-100 border-gray-300 rounded focus:ring-primary dark:focus:ring-primary-light dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
               />
               <label
                 for="checkbox-item-11"
@@ -42,7 +51,7 @@ const CheckedModal = ({ close, showDialog }) => {
                 id="checkbox-item-11"
                 type="checkbox"
                 value=""
-                className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-light focus:ring-blue-500 dark:focus:ring-primary-light dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-light focus:ring-primary dark:focus:ring-primary-light dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
               />
               <label
                 for="checkbox-item-11"
@@ -58,7 +67,7 @@ const CheckedModal = ({ close, showDialog }) => {
                 id="checkbox-item-11"
                 type="checkbox"
                 value=""
-                className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-light focus:ring-blue-500 dark:focus:ring-primary-light dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
+                className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-light focus:ring-primary dark:focus:ring-primary-light dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500"
               />
               <label
                 for="checkbox-item-11"
@@ -68,7 +77,11 @@ const CheckedModal = ({ close, showDialog }) => {
               </label>
             </div>
           </li>
-        </ul>
+        </ul> */}
+
+        <div className="container mx-auto mt-8 mb-4">
+          <CheckboxSelect options={options} />
+        </div>
       </DialogContent>
     </div>
   );
