@@ -1,6 +1,6 @@
-import Header from "../../components/Header/Header";
-import Icon from "../../components/Icon/Icon";
-import Nav from "../../components/Nav/Nav";
+import Header from "../../components/Header";
+import Icon from "../../components/Icon";
+import Nav from "../../components/Nav";
 
 import EmptyIllustratation from "../../assets/illustration-empty.svg";
 

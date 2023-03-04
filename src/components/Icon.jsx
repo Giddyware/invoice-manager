@@ -1,5 +1,5 @@
 import React from "react";
-import { images } from "../../constants";
+import { images } from "../constants";
 import { FiPlus } from "react-icons/fi";
 import { AiFillCiCircle, AiOutlineArrowDown } from "react-icons/ai";
 

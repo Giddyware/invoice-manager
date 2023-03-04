@@ -1,12 +1,18 @@
-import { Link, useHistory, useNavigate } from "react-router-dom";
-import Button from "../../components/Button/Button";
-import Header from "../../components/Header/Header";
-import Icon from "../../components/Icon/Icon";
-import SideModal from "../../components/SlideModal/SlideModal";
-import Receipt from "../../components/Receipt/Receipt";
+import {
+  Link,
+  useHistory,
+  useLocation,
+  useNavigate,
+  useNavigation,
+} from "react-router-dom";
+import Button from "../../components/Button";
+import Header from "../../components/Header";
+import Icon from "../../components/Icon";
+import SideModal from "../../components/SlideModal";
+import Receipt from "../../components/Receipt";
 import EditInvoice from "../EditInvoice";
 import { useState } from "react";
-import CenterModal from "../../components/CenterModal/CenterModal";
+import CenterModal from "../../components/CenterModal";
 
 const invoiceDetail = [
   {
@@ -31,6 +37,9 @@ const ViewInvoice = () => {
   const closeSideModal = () => setShowSideModal(false);
 
   const navigate = useNavigate();
+  const navigation = useNavigation();
+  const location = useLocation();
+  console.log("loa", location);
   return (
     <div className="flex flex-col bg-gray-light lg:flex-row">
       <Header />
@@ -50,7 +59,11 @@ const ViewInvoice = () => {
             </Receipt>
           </div>
           <div className="font-bold text-[12px] bg-[white] px-[24px] text-[white] sm:hidden md:block">
-            <Link to="/edit-invoice">
+            <Link
+              state={{ background: location }}
+              to="/wsdit-invoice"
+              onClick={openSideModal}
+            >
               <button className="px-[24px] py-[16px] md:mr-[8px] bg-draft-light rounded-full capitalize text-primary-light hover:bg-gray">
                 edit
               </button>
@@ -139,7 +152,11 @@ const ViewInvoice = () => {
       </main>
 
       <div className="font-bold text-[12px] mt-[56px] bg-[white] px-[24px] py-[22px] flex justify-between items-center text-[white] md:hidden">
-        <Link to="/edit-invoice" onClick={openSideModal}>
+        <Link
+          state={{ background: location }}
+          // to="/edit-invoice"
+          onClick={openSideModal}
+        >
           <button className="px-[24px] py-[16px] bg-draft-light rounded-full capitalize text-primary-light">
             edit
           </button>

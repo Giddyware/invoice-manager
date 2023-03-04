@@ -1,5 +1,5 @@
-import Icon from "../Icon/Icon";
-import Receipt from "../Receipt/Receipt";
+import Icon from "./Icon";
+import Receipt from "./Receipt";
 
 const Card = ({ id, clientName, paymentDue, total, status }) => {
   return (
@@ -15,7 +15,7 @@ const Card = ({ id, clientName, paymentDue, total, status }) => {
 
         <p className="mb-[28px] text-gray-dark-61 md:flex-1">{clientName}</p>
 
-        <Receipt className='hidden' status={status}>
+        <Receipt className="hidden" status={status}>
           <p className="ml-[6px] capitalize">{status}</p>
         </Receipt>
       </div>

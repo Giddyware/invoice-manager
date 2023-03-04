@@ -1,6 +1,6 @@
 import { useState } from "react";
-import CheckedModal from "../CheckedModal/CheckedModal";
-import Icon from "../Icon/Icon";
+import CheckedModal from "./CheckedModal";
+import Icon from "./Icon";
 
 const Nav = () => {
   const [showCheckedModal, setCheckedModal] = useState(false);

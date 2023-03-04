@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Header from "../../components/Header/Header";
-import Icon from "../../components/Icon/Icon";
+import Header from "../../components/Header";
+import Icon from "../../components/Icon";
 
 const EditInvoice = () => {
   const [date, setDate] = useState(0);

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { images } from "../../constants";
-import Icon from "../Icon/Icon";
-import Logo from "../Logo/Logo";
+import { images } from "../constants";
+import Icon from "./Icon";
+import Logo from "./Logo";
 
 const Header = () => {
   return (

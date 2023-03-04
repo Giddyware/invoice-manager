@@ -8,7 +8,11 @@ import {
   Route,
   Outlet,
   RouterProvider,
+  useNavigation,
+  useLocation,
+  Routes,
 } from "react-router-dom";
+import SideModal from "./components/SlideModal";
 
 function App() {
   const router = createBrowserRouter(
@@ -16,8 +20,8 @@ function App() {
       <Route path="/" element={<Root />}>
         <Route index element={<Home />} />
         <Route path="/empty" element={<Empty />} />
-        <Route path="/edit-invoice" element={<EditInvoice />} />
         <Route path="/view-invoice" element={<ViewInvoice />} />
+        <Route path="/edit-invoice" element={<EditInvoice />} />
       </Route>
     )
   );
@@ -28,9 +32,21 @@ function App() {
 export default App;
 
 const Root = () => {
+  let location = useLocation();
+
+  const background = location.state && location.state.background;
+
+  // console.log("location state", location.state.background);
+
   return (
     <>
       <Outlet />
+
+      {background && (
+        <Routes>
+          <Route path="/" element={<SideModal />} />
+        </Routes>
+      )}
     </>
   );
 };

@@ -6,13 +6,16 @@ import "@reach/tabs/styles.css";
 import { VisuallyHidden } from "@reach/visually-hidden";
 
 import { useState } from "react";
-import EditInvoice from "../../page/EditInvoice";
+import { useNavigate } from "react-router-dom";
+import EditInvoice from "../page/EditInvoice";
 
-const SideModal = ({showSideModal,open,close, children }) => {
+const SideModal = ({ showSideModal, open, close, children }) => {
   // const [showSideModal, setShowModal] = useState(false);
 
   // const open = () => setShowModal(true);
   // const close = () => setShowModal(false);
+
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -44,7 +47,7 @@ const SideModal = ({showSideModal,open,close, children }) => {
             width: "30px",
             height: "30px",
           }}
-          onClick={close}
+          onClick={() => navigate(-1)}
         >
           <VisuallyHidden>Close</VisuallyHidden>
           <span aria-hidden>X</span>

@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import CircleDot from "../CircleDot/CircleDot";
+import CircleDot from "./CircleDot";
 
 const classes = {
   base: "flex items-center justify-center w-[104px] font-bold p-2 rounded-[8px] md:mt-0",
@@ -16,10 +16,9 @@ const Receipt = ({ status = "pending", children, ...props }) => {
       className={classNames(
         `${classes.base} 
         ${classes.status[status]}`
-        )}
-        {...props.className}
-        >
-     
+      )}
+      {...props.className}
+    >
       <CircleDot status={status} />
       {children}
     </div>
