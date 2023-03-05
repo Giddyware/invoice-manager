@@ -12,6 +12,7 @@ import { ReactComponent as sunIcon } from "../assets/icon-sun.svg";
 import { ReactComponent as illustrationEmpty } from "../assets/illustration-empty.svg";
 
 import AvatarImage from "../assets/image-avatar.jpg";
+import bg from '../assets/bg.jpg'
 
 export default {
   logo,
@@ -27,4 +28,5 @@ export default {
   sunIcon,
   illustrationEmpty,
   AvatarImage,
+  bg
 };

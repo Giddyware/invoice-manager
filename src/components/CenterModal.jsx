@@ -1,6 +1,7 @@
 import { DialogContent, DialogOverlay } from "@reach/dialog";
 import { useRef, useState } from "react";
 
+
 const CenterModal = ({ close, showDialog }) => {
   // const [showDialog, setShowDialog] = useState(false);
   const buttonRef = useRef();
