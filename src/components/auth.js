@@ -1,23 +1,32 @@
 import { DialogContent, DialogOverlay } from "@reach/dialog";
+import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { auth, googleProvider } from "../config/firebase";
 import "@reach/dialog/styles.css";
-import { AiFillGoogleCircle, AiOutlineCheckSquare } from "react-icons/ai";
+import { useState } from "react";
+import { AiFillGoogleCircle } from "react-icons/ai";
 import { BiCaretRight } from "react-icons/bi";
-
-import { FiArrowDownRight, FiBox } from "react-icons/fi";
-import CheckboxSelect from "./CheckboxSelect";
-
-let graditentStyle = {
-  fontSize: "12px",
-  background: "linear-gradient(#eee, #333)",
-  backgroundClip: "text",
-  textFfillColor: "transparent",
-};
-
-let hjd = "bg-gradient-to-bl from-[#0F172A] via-[#6366F1] to-[#F0ABFC]";
 
 export const Auth = () => {
   let showDialog;
   let close;
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const signIn = async () => {
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const signWithGoogle = async () => {
+    try {
+      await signInWithPopup(auth, googleProvider);
+    } catch (error) {
+      console.error(error);
+    }
+  };
   return (
     <div>
       <DialogOverlay isOpen={showDialog} onDismiss={close}>
@@ -58,7 +67,7 @@ export const Auth = () => {
                   type="email"
                   aria-describedby=" "
                   className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-black bg-transparent rounded-lg border-[1px] border-gray-dark-63 appearance-none  focus:outline-none focus:ring-0 focus:border-gray-dark-63 peer"
-                  placeholder=" "
+                  onChange={(e) => setEmail(e.target.value)}
                 />
                 <label
                   htmlFor=""
@@ -78,7 +87,7 @@ export const Auth = () => {
                   type="password"
                   aria-describedby=" "
                   className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-black bg-transparent rounded-lg border-[1px] border-gray-dark-63 appearance-none  focus:outline-none focus:ring-0 focus:border-gray-dark-63 peer"
-                  placeholder=" "
+                  onChange={(e) => setPassword(e.target.value)}
                 />
                 <label
                   htmlFor=""
@@ -105,6 +114,7 @@ export const Auth = () => {
             <button
               type="button"
               className="text-[white] bg-gradient-to-br from-primary to-gray-dark-63 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 w-full mt-4"
+              onClick={signIn}
             >
               Login
             </button>
