@@ -1,12 +1,34 @@
 import { useState } from "react";
+import { AiFillDelete } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import Input from "../../components/FormItem";
 import Header from "../../components/Header";
 import Icon from "../../components/Icon";
+import ItemList from "../../components/ItemList";
 
 const EditInvoice = () => {
   const [date, setDate] = useState(0);
 
   const navigate = useNavigate();
+
+  let paymentTermList = [
+    {
+      id: "1",
+      day: "1",
+    },
+    {
+      id: "2",
+      day: "7",
+    },
+    {
+      id: "3",
+      day: "14",
+    },
+    {
+      id: "4",
+      day: "30",
+    },
+  ];
 
   return (
     <div className="flex flex-col bg-white-light lg:flex-row">
@@ -27,221 +49,148 @@ const EditInvoice = () => {
         </h3>
 
         <form className="text-gray-dark-63 font-[12px]" type="" action="">
-          <label className="mb-[10px] block" htmlFor="street">
-            Street Address
-          </label>
-          <input
-            className="w-full px-[20px] py-[16px] h-[48px] rounded-[4px] border-solid border border-gray lg:block lg:w-full"
-            type="text"
-            name="street"
+          <Input
             id="street"
+            name="street"
+            label="Name"
             placeholder="19 Union Terrace"
+            type="text"
           />
 
           <div className="flex justify-between my-[24px]">
-            <div className="">
-              <label className="block mb-[10px]" htmlFor="city">
-                City
-              </label>
-              <input
-                className="mr-4 py-[16px] px-[20px] h-[48px] rounded-[4px] border-solid border border-gray"
-                type="text"
-                name="city"
-                id="city"
-                placeholder="London"
-              />
-            </div>
-
-            <div className="">
-              <label className="block mb-[10px]" htmlFor="Post Code">
-                Post Code
-              </label>
-              <input
-                className="py-1 px-[20px] h-[48px] rounded-[4px] border-solid border border-gray"
-                type="text"
-                name="Post Code"
-                id="Post Code"
-                placeholder="E1 3EZ"
-              />
-            </div>
+            <Input
+              id="city"
+              name="city"
+              label="City"
+              placeholder="London"
+              type="text"
+            />
+            <Input
+              id="postCode"
+              name="postCode"
+              label="Post Code"
+              placeholder="E1 3EZ"
+              type="text"
+            />
           </div>
 
-          <label className="block mb-[10px]" htmlFor="Country">
-            Country
-          </label>
-          <input
-            className="w-full px-[20px] py-[16px] h-[48px] rounded-[4px] border-solid border border-gray lg:block lg:w-full"
-            type="text"
-            name="Country"
+          <Input
             id="Country"
+            name="Country"
+            label="Country"
             placeholder="United Kingdom"
+            type="text"
           />
 
           <h2 className="my-[24px] font-bold text-[12px] text-primary">
             Bill To
           </h2>
 
-          <label className="block mb-[10px]" htmlFor="Client's Name">
-            Client's Name Address
-          </label>
-          <input
-            className="w-full px-[20px] mb-[24px] py-[16px] h-[48px] rounded-[4px] border-solid border border-gray lg:block lg:w-full"
+          <Input
+            id="Client's Name Address"
+            name="Client's Name Address"
+            label="Client's Name Address"
+            placeholder="United Kingdom"
             type="text"
-            name="Client's Name"
-            id="Client's Name"
-            placeholder="Alex Grim"
           />
 
-          <label className="block mb-[10px]" htmlFor="street2">
-            Street Address
-          </label>
-          <input
-            className="w-full px-[20px] mb-[24px] py-[16px] h-[48px] rounded-[4px] border-solid border border-gray lg:block lg:w-full"
-            type="text"
-            name="street2"
-            id="street2"
+          <Input
+            id="streetAddress2"
+            name="Street Address"
+            label="Street Address"
             placeholder="84 Church Way"
+            type="text"
           />
 
           <div className="flex justify-between mb-[24px]">
-            <div className="">
-              <label className="block mb-[10px]" htmlFor="city2">
-                City
-              </label>
-              <input
-                className="mr-4 py-[16px] px-[20px] h-[48px] rounded-[4px] border-solid border border-gray"
-                type="text"
-                name="city2"
-                id="city2"
-                placeholder="Bradford"
-              />
-            </div>
+            <Input
+              id="city2"
+              name="city2"
+              label="City"
+              placeholder="Bradford"
+              type="text"
+            />
 
-            <div className="">
-              <label className="block mb-[10px]" htmlFor="Post Code2">
-                Post Code
-              </label>
-              <input
-                className="py-1 px-[20px] h-[48px] rounded-[4px] border-solid border border-gray"
-                type="text"
-                name="Post Code2"
-                id="Post Code2"
-                placeholder="BD1 9PB"
-              />
-            </div>
+            <Input
+              id="Post Code2"
+              name="Post Code2"
+              label="Post Code"
+              placeholder="BD1 9PB"
+              type="text"
+            />
+            <Input
+              id="Country"
+              name="Country"
+              label="Country"
+              placeholder="BD1 9PB"
+              type="text"
+            />
           </div>
 
-          <label className="block mb-[10px]" htmlFor="Invoice Date">
-            Invoice Date
-          </label>
-          <input
-            onChange={(event) => {
-              console.log(event.target.value);
-              setDate(event.target.value);
-              console.log(date);
-            }}
-            className="w-full px-[20px] py-[16px] h-[48px] rounded-[4px] border-solid border border-gray lg:block lg:w-full"
-            type="date"
-            name="Invoice Date"
-            id="Invoice Date"
-            placeholder="2021-08-21"
-          />
+          <div className="flex justify-between mb-[24px]">
+            <div className="relative flex-1 max-w-sm">
+              <label className="block mb-2" htmlFor="Invoice Date">
+                Invoice Date
+              </label>
 
-          <label className="block mb-[10px]" htmlFor="Payment Terms">
-            Payment Terms
-          </label>
-          <input
-            className="w-full px-[20px] mb-[24px] py-[16px] h-[48px] rounded-[4px] border-solid border border-gray lg:block lg:w-full"
-            type="select"
-            name="Payment Terms"
-            id="Payment Terms"
-          />
+              <input
+                datepicker
+                type="date"
+                className="bg-gray-50 shadow-sm border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-200 focus:ring-opacity-50 block w-full pl-10 p-2.5"
+                placeholder="Select date"
+              />
+            </div>
 
-          <label className="block mb-[10px]" htmlFor="Project Description">
-            Project Description
-          </label>
-          <input
-            className="w-full px-[20px] mb-[24px] py-[16px] h-[48px] rounded-[4px] border-solid border border-gray lg:block lg:w-full"
-            type="text"
-            name="Project Description"
+            <div className="flex-1 ml-6">
+              <label
+                Htmlfor="paymentTerms"
+                className="block mb-2 text-sm text-gray-900"
+              >
+                Payment Terms
+              </label>
+              <select
+                id="paymentTerms"
+                className="block w-full p-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
+              >
+                <option selected>Choose a payment Term</option>
+
+                {paymentTermList.map(({ id, day }) => (
+                  <option className="hover:text-primary" value={day}>
+                    Net {day} Day
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+          <Input
             id="Project Description"
+            name="Project Description"
+            label="Project Description"
+            placeholder="Graphic Design"
           />
 
           <h2 className="my-[24px] font-bold text-[18px] text-gray-dark-61">
             Item List
           </h2>
 
-          <label className="block mb-[10px]" htmlFor="Item Name">
-            Item Name
-          </label>
-          <input
-            className="w-full px-[20px] mb-[24px] py-[16px] h-[48px] rounded-[4px] border-solid border border-gray lg:block lg:w-full"
-            type="text"
-            name="Item Name"
-            id="Item Name"
-          />
+          <ItemList />
 
-          <div className="flex w-full">
-            <div className="flex-1">
-              <label className="block mb-[10px]" htmlFor="Qty">
-                Qty
-              </label>
-              <input
-                className="w-full  px-[20px] mb-[24px] py-[16px] h-[48px] rounded-[4px] border-solid border border-gray"
-                type="number"
-                name="Qty"
-                id="Qty"
-              />
-            </div>
-
-            <div>
-              <label className="block mb-[10px]" htmlFor="Price">
-                Price
-              </label>
-              <input type="number" name="Price" id="Pric2" />
-            </div>
-
-            <div>
-              <label className="block mb-[10px]" htmlFor="Total">
-                Total
-              </label>
-              <input type="number" name="Total" id="Total" />
-            </div>
-          </div>
-
-          <label className="block mb-[10px]" htmlFor="Item Name">
-            Item Name
-          </label>
-          <input
-            className="w-full px-[20px] mb-[24px] py-[16px] h-[48px] rounded-[4px] border-solid border border-gray lg:block lg:w-full"
-            type="text"
-            name="Item Name"
-            id="Item Name"
-          />
-
-          <div className="flex w-full">
-            <div>
-              <label className="block mb-[10px]" htmlFor="Qty">
-                Qty
-              </label>
-              <input type="number" name="Qty" id="Qty" />
-            </div>
-
-            <div>
-              <label className="block mb-[10px]" htmlFor="Price">
-                Price
-              </label>
-              <input type="number" name="Price" id="Price" />
-            </div>
-
-            <div>
-              <label className="block mb-[10px]" htmlFor="Total">
-                Total
-              </label>
-              <input type="number" name="Total" id="Total" />
-            </div>
+          <div className="w-full p-4 font-bold text-center rounded-3xl text-gray-dark-63 bg-gray">
+            + Add New Item
           </div>
         </form>
+        <div className="my-8 text-xs text-urgent">
+          <span className="block">- All fields must be added</span>
+          <span className="block">- An item must be added</span>
+        </div>
+        <div className="flex justify-end font-medium">
+          <button className="px-[24px] py-[16px] md:mr-[8px] bg-draft-light rounded-full capitalize text-gray-dark-63 hover:bg-gray">
+            cancel
+          </button>
+          <button className="px-[24px] py-[16px] rounded-full bg-primary capitalize hover:bg-primary-light text-[white]">
+            Save Changes
+          </button>
+        </div>
       </main>
     </div>
   );

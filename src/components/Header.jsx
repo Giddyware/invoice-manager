@@ -1,8 +1,13 @@
+import { useState } from "react";
 import { images } from "../constants";
+import { Auth } from "./auth";
 import Icon from "./Icon";
 import Logo from "./Logo";
 
 const Header = () => {
+  const [showDialog, setShowDialog] = useState(false);
+  const close = () => setShowDialog(false);
+
   return (
     <div className="mb-[0px] flex items-center bg-gray-dark-27 lg:flex-col lg:min-h-screen lg:rounded-tr-[22px]">
       <Logo />
@@ -12,13 +17,15 @@ const Header = () => {
       </div>
       <div className="border-l-[0.01px] h-[64px] border-[#494E6E] lg:hidden"></div>
       <hr className="w-[64px] text-[#494E6E] md:hidden sm:hidden"></hr>
-      <div className="p-[18px]">
+      <div onClick={() => setShowDialog(true)} className="p-[18px]">
         <img
           className="rounded-full w-[32px]"
           src={images.AvatarImage}
           alt="link to the profile"
         />
       </div>
+
+      <Auth showDialog={showDialog} close={close} />
     </div>
   );
 };

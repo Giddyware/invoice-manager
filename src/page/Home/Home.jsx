@@ -47,7 +47,7 @@ const Home = () => {
             <Card key={client.id} {...client} />
           ))}
         </div>
-        <Auth />
+       
       </main>
     </div>
   );

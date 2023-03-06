@@ -26,7 +26,7 @@ const initialState = {
 
 const actions = {
   ADD_NEW_CLIENT: "ADD_NEW_CLIENT",
-  REMOVE_NEW_CLIENT: "REMOVE_NEW_CLIENT",
+  // REMOVE_NEW_CLIENT: "REMOVE_NEW_CLIENT",
 };
 
 let loo =
@@ -46,18 +46,12 @@ const reducer = (state, action) => {
         clientList: [
           ...state.clientList,
           {
-            id: new Date().valueOf(),
-            label: action.todoItemLabel,
-            completed: false,
+            id: loo,
+            createdAt: new Date().valueOf(),
           },
         ],
       };
-    case actions.REMOVE_TODO_ITEM: {
-      const filteredTodoItem = state.todoList.filter(
-        (todoItem) => todoItem.id !== action.todoItemId
-      );
-      return { todoList: filteredTodoItem };
-    }
+
     case actions.TOGGLE_COMPLETED: {
       const updatedTodoList = state.todoList.map((todoItem) =>
         todoItem.id === action.todoItemId
@@ -72,18 +66,15 @@ const reducer = (state, action) => {
 };
 
 function App() {
-  let { clientId } = useParams();
+
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
         <Route index element={<Home />} />
-        {/* <Route path="/view-invoice" element={<ViewInvoice />} /> */}
-        <Route path="/">
-          <Route path=":clientId" element={<ViewInvoice />} />
-        </Route>
+        <Route path="/view-invoice" element={<ViewInvoice />} />
         <Route path="/edit-invoice" element={<EditInvoice />} />
         <Route path="/empty" element={<Empty />} />
-        {/* <Route path="/welcome" element={<Auth />} /> */}
+        <Route path="/welcome" element={<Auth />} />
       </Route>
     )
   );
