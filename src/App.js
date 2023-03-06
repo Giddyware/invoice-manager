@@ -17,17 +17,18 @@ import SideModal from "./components/SlideModal";
 import { Auth } from "./components/auth";
 import { createContext } from "react";
 import Clients from "./constants/data";
+import { InvoiceProvider } from "./context/invoiceContext";
 
-export const ClientsData = createContext();
+// export const ClientsData = createContext();
 
-const initialState = {
-  todoList: [],
-};
+// const initialState = {
+//   todoList: [],
+// };
 
-const actions = {
-  ADD_NEW_CLIENT: "ADD_NEW_CLIENT",
-  // REMOVE_NEW_CLIENT: "REMOVE_NEW_CLIENT",
-};
+// const actions = {
+//   ADD_NEW_CLIENT: "ADD_NEW_CLIENT",
+//   // REMOVE_NEW_CLIENT: "REMOVE_NEW_CLIENT",
+// };
 
 let loo =
   Math.random()
@@ -39,40 +40,39 @@ let loo =
 
 console.log(loo);
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case actions.ADD_NEW_CLIENT:
-      return {
-        clientList: [
-          ...state.clientList,
-          {
-            id: loo,
-            createdAt: new Date().valueOf(),
-          },
-        ],
-      };
+// const reducer = (state, action) => {
+//   switch (action.type) {
+//     case actions.ADD_NEW_CLIENT:
+//       return {
+//         clientList: [
+//           ...state.clientList,
+//           {
+//             id: loo,
+//             createdAt: new Date().valueOf(),
+//           },
+//         ],
+//       };
 
-    case actions.TOGGLE_COMPLETED: {
-      const updatedTodoList = state.todoList.map((todoItem) =>
-        todoItem.id === action.todoItemId
-          ? { ...todoItem, completed: !todoItem.completed }
-          : todoItem
-      );
-      return { todoList: updatedTodoList };
-    }
-    default:
-      return state;
-  }
-};
+//     case actions.TOGGLE_COMPLETED: {
+//       const updatedTodoList = state.todoList.map((todoItem) =>
+//         todoItem.id === action.todoItemId
+//           ? { ...todoItem, completed: !todoItem.completed }
+//           : todoItem
+//       );
+//       return { todoList: updatedTodoList };
+//     }
+//     default:
+//       return state;
+//   }
+// };
 
 function App() {
-
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
         <Route index element={<Home />} />
         <Route path="/view-invoice" element={<ViewInvoice />} />
-        <Route path="/edit-invoice" element={<EditInvoice />} />
+        {/* <Route path="/edit-invoice" element={<EditInvoice />} /> */}
         <Route path="/empty" element={<Empty />} />
         <Route path="/welcome" element={<Auth />} />
       </Route>
@@ -80,9 +80,9 @@ function App() {
   );
 
   return (
-    <ClientsData.Provider value={Clients}>
-      <RouterProvider router={router} />;
-    </ClientsData.Provider>
+    <InvoiceProvider>
+      <RouterProvider router={router} />
+    </InvoiceProvider>
   );
 }
 
