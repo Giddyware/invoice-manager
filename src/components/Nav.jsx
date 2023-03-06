@@ -51,7 +51,7 @@ const Nav = () => {
               strokeWidth={3}
             />
           </span>
-          <p className="text-sm font-[500] pr-[8px]">
+          <p onClick={()=>{}} className="text-sm font-[500] pr-[8px]">
             New
             <span className="hidden pl-1 md:inline">Invoice</span>{" "}
           </p>

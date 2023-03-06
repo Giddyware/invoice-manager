@@ -5,8 +5,9 @@ import Icon from "../../components/Icon";
 import SideModal from "../../components/SlideModal";
 import Receipt from "../../components/Receipt";
 import EditInvoice from "../EditInvoice";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import CenterModal from "../../components/CenterModal";
+import { InvoiceContext } from "../../context/invoiceContext";
 
 // import { db } from "../../config/firebase";
 
@@ -23,18 +24,23 @@ const invoiceDetail = [
 const ViewInvoice = () => {
   // CenterModal
   const [showCenterModal, setCenterModal] = useState(false);
-
   const openCenterModal = () => setCenterModal(true);
   const closeCenterModal = () => setCenterModal(false);
 
   const [showSideModal, setShowSideModal] = useState(false);
-
   const openSideModal = () => setShowSideModal(true);
   const closeSideModal = () => setShowSideModal(false);
 
   const navigate = useNavigate();
-
   const location = useLocation();
+
+  const { invoices } = useContext(InvoiceContext);
+
+  useEffect(() => {
+    console.log(invoices);
+
+    // const invoice = invoices.find(product => product.id === parseInt(id));
+  }, [invoices]);
 
   return (
     <div className="flex flex-col bg-gray-light lg:flex-row">

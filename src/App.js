@@ -15,8 +15,8 @@ import {
 } from "react-router-dom";
 import SideModal from "./components/SlideModal";
 import { Auth } from "./components/auth";
-import { createContext } from "react";
-import Clients from "./constants/data";
+import { createContext, useState } from "react";
+
 import { InvoiceProvider } from "./context/invoiceContext";
 
 // export const ClientsData = createContext();
@@ -40,43 +40,40 @@ let loo =
 
 console.log(loo);
 
-// const reducer = (state, action) => {
-//   switch (action.type) {
-//     case actions.ADD_NEW_CLIENT:
-//       return {
-//         clientList: [
-//           ...state.clientList,
-//           {
-//             id: loo,
-//             createdAt: new Date().valueOf(),
-//           },
-//         ],
-//       };
-
-//     case actions.TOGGLE_COMPLETED: {
-//       const updatedTodoList = state.todoList.map((todoItem) =>
-//         todoItem.id === action.todoItemId
-//           ? { ...todoItem, completed: !todoItem.completed }
-//           : todoItem
-//       );
-//       return { todoList: updatedTodoList };
-//     }
-//     default:
-//       return state;
-//   }
-// };
-
 function App() {
+  const { id } = useParams();
+
+  const [user, setUser] = useState(null)
+
   const router = createBrowserRouter(
-    createRoutesFromElements(
-      <Route path="/" element={<Root />}>
-        <Route index element={<Home />} />
-        <Route path="/view-invoice" element={<ViewInvoice />} />
-        {/* <Route path="/edit-invoice" element={<EditInvoice />} /> */}
-        <Route path="/empty" element={<Empty />} />
-        <Route path="/welcome" element={<Auth />} />
-      </Route>
-    )
+    // createRoutesFromElements(
+    //   <Route path="/" element={<Root />}>
+    //     {/* <Route index element={<Home />} /> */}
+
+    //     <Route path="/view-invoice" element={<Home />}>
+    //       <Route exact path=":id" element={<ViewInvoice />} />
+    //     </Route>
+    //     {/* <Route path="/edit-invoice" element={<EditInvoice />} /> */}
+    //     <Route path="/test" element={<ViewInvoice />} />
+    //     <Route path="/empty" element={<Empty />} />
+    //     <Route path="/welcome" element={<Auth />} />
+    //   </Route>
+    // )
+
+    [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "view-invoice/:id",
+        element: <ViewInvoice />,
+      },
+      {
+        path: "empty",
+        element: <Empty />,
+      },
+    ]
   );
 
   return (
@@ -97,11 +94,11 @@ const Root = () => {
     <>
       <Outlet />
 
-      {background && (
+      {/* {background && (
         <Routes>
           <Route path="/" element={<SideModal />} />
         </Routes>
-      )}
+      )} */}
     </>
   );
 };

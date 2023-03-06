@@ -1,10 +1,12 @@
+import { useNavigate } from "react-router-dom";
 import Icon from "./Icon";
 import Receipt from "./Receipt";
 
 const Card = ({ id, clientName, paymentDue, total, status }) => {
+  const navigate = useNavigate();
   return (
     <div
-      onClick={() => console.log(id)}
+      onClick={() => navigate(`/view-invoice/${id}`)}
       className="flex bg-offWhite  max-h-[134px] p-[24px] mt-[16px] md:items-center hover:cursor-pointer"
     >
       <div className="flex flex-col flex-1 md:flex-row md:mt-1">
