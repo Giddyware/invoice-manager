@@ -9,6 +9,7 @@ function CheckboxSelect({ options }) {
     } else {
       setSelected(value);
     }
+   
   };
 
   return (
@@ -16,7 +17,7 @@ function CheckboxSelect({ options }) {
       {options.map((option) => (
         <label
           key={option.value}
-          className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 flex items-center"
+          className="flex items-center w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5"
         >
           <input
             type="checkbox"

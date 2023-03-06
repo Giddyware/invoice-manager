@@ -5,6 +5,8 @@ import "@reach/dialog/styles.css";
 
 const CheckedModal = ({ close, showDialog }) => {
   const [checked, setChecked] = useState(true);
+  
+ 
 
   const options = [
     { label: "Draft", value: "draft" },

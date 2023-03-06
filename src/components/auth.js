@@ -5,10 +5,15 @@ import "@reach/dialog/styles.css";
 import { useState } from "react";
 import { AiFillGoogleCircle } from "react-icons/ai";
 import { BiCaretRight } from "react-icons/bi";
+import { VisuallyHidden } from "@reach/visually-hidden";
+import { useNavigate } from "react-router-dom";
 
 export const Auth = () => {
-  let showDialog;
-  let close;
+  const [showDialog, setShowDialog] = useState(false);
+
+  const close = () => setShowDialog(false);
+
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -27,6 +32,7 @@ export const Auth = () => {
       console.error(error);
     }
   };
+
   return (
     <div>
       <DialogOverlay isOpen={showDialog} onDismiss={close}>
@@ -45,6 +51,22 @@ export const Auth = () => {
           }}
           //   className="test"
         >
+          <button
+            className="close-button"
+            style={{
+              position: "fixed",
+              right: "250px",
+              top: "44px",
+              fontWeight: "bold",
+              color: "hsl(231deg, 20%, 61%)",
+              width: "30px",
+              height: "30px",
+            }}
+            onClick={() => navigate(-1)}
+          >
+            <VisuallyHidden>Close</VisuallyHidden>
+            <span aria-hidden>X</span>
+          </button>
           <div className="flex-1 rounded-tl-lg rounded-bl-lg bgImg">
             <h1 className="text-[white] font-bold text-5xl max-w-min relative top-24 left-14 glass-effect px-8 py-14">
               <span className="">
@@ -125,6 +147,7 @@ export const Auth = () => {
             </div>
             <button
               type="button"
+              onClick={signWithGoogle}
               className=" font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 w-full border-solid border-primary border-2"
             >
               <AiFillGoogleCircle className="text-[28px]" />

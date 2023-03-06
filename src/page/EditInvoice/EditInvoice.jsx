@@ -92,16 +92,6 @@ const EditInvoice = () => {
             placeholder="Alex Grim"
           />
 
-          {/* <label className="block mb-[10px]" htmlFor="Client's Email">
-            Client's Email Address
-          </label>
-          <input
-            className="w-full px-[20px] py-[16px] h-[48px] rounded-[4px] border-solid border border-gray lg:block lg:w-full"
-            type="email"
-            name="Client's Email"
-            id="Client's Email"
-          /> */}
-
           <label className="block mb-[10px]" htmlFor="street2">
             Street Address
           </label>
@@ -196,7 +186,12 @@ const EditInvoice = () => {
               <label className="block mb-[10px]" htmlFor="Qty">
                 Qty
               </label>
-              <input className="w-full" type="number" name="Qty" id="Qty" />
+              <input
+                className="w-full  px-[20px] mb-[24px] py-[16px] h-[48px] rounded-[4px] border-solid border border-gray"
+                type="number"
+                name="Qty"
+                id="Qty"
+              />
             </div>
 
             <div>

@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { images } from "../constants";
 import Icon from "./Icon";
 import Logo from "./Logo";
@@ -6,14 +5,8 @@ import Logo from "./Logo";
 const Header = () => {
   return (
     <div className="mb-[0px] flex items-center bg-gray-dark-27 lg:flex-col lg:min-h-screen lg:rounded-tr-[22px]">
-      <Link to="/" className="mr-auto p-[23px] isolate">
-        <img
-          className="absolute top-0 left-0 z-[-1]"
-          src={images.logoBg}
-          alt=""
-        />
-        <Logo />
-      </Link>
+      <Logo />
+
       <div className="p-[20px] lg:mt-auto">
         <Icon className="" id="moon-icon" color="" size="" strokeWidth={""} />
       </div>
