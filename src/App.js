@@ -13,22 +13,12 @@ import {
   Routes,
   useParams,
 } from "react-router-dom";
-import SideModal from "./components/SlideModal";
-import { Auth } from "./components/auth";
-import { createContext, useState } from "react";
+
+import { useState } from "react";
 
 import { InvoiceProvider } from "./context/invoiceContext";
-
-// export const ClientsData = createContext();
-
-// const initialState = {
-//   todoList: [],
-// };
-
-// const actions = {
-//   ADD_NEW_CLIENT: "ADD_NEW_CLIENT",
-//   // REMOVE_NEW_CLIENT: "REMOVE_NEW_CLIENT",
-// };
+import { Authentication } from "./components/auth";
+import { ProtectedRoute } from "./components/ProtectedRoute";
 
 let loo =
   Math.random()
@@ -43,7 +33,7 @@ console.log(loo);
 function App() {
   const { id } = useParams();
 
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(null);
 
   const router = createBrowserRouter(
     // createRoutesFromElements(
@@ -63,15 +53,31 @@ function App() {
     [
       {
         path: "/",
-        element: <Home />,
+        element: (
+          // <ProtectedRoute>
+            <Home />
+          // </ProtectedRoute>
+        ),
       },
       {
         path: "view-invoice/:id",
-        element: <ViewInvoice />,
+        element: (
+          // <ProtectedRoute>
+            <ViewInvoice />
+          // </ProtectedRoute>
+        ),
       },
       {
         path: "empty",
-        element: <Empty />,
+        element: (
+          // <ProtectedRoute>
+            <Empty />
+          // </ProtectedRoute>
+        ),
+      },
+      {
+        path: "signup",
+        element: <Authentication />,
       },
     ]
   );

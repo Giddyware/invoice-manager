@@ -8,7 +8,7 @@ import { BiCaretRight } from "react-icons/bi";
 import { VisuallyHidden } from "@reach/visually-hidden";
 import { useNavigate } from "react-router-dom";
 
-export const Auth = ({ showDialog, close }) => {
+export const Authentication = ({ showDialog, close }) => {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");

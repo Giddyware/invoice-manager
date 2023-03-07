@@ -1,4 +1,4 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 // import Button from "../../components/Button";
 import Header from "../../components/Header";
 import Icon from "../../components/Icon";
@@ -35,12 +35,32 @@ const ViewInvoice = () => {
   const location = useLocation();
 
   const { invoices } = useContext(InvoiceContext);
+  let { id } = useParams();
+  console.log("id", id);
+
+  const [invoice, setInvoice] = useState({});
+  let {
+    createdAt,
+    paymentDue,
+    description,
+    paymentTerms,
+    items,
+    clientName,
+    clientEmail,
+    clientAddress,
+    status,
+    total,
+    senderAddress,
+  } = invoice;
 
   useEffect(() => {
-    console.log(invoices);
-
-    // const invoice = invoices.find(product => product.id === parseInt(id));
-  }, [invoices]);
+    let invoiceData = invoices.find((invoice) => invoice.id === id);
+    // let foo = invoices.map((invoice) =>
+    //   console.log(Boolean(invoice.id === id))
+    // );
+    setInvoice(invoiceData);
+  }, [id, invoices]);
+  console.log("items", items);
 
   return (
     <div className="flex flex-col bg-gray-light lg:flex-row">
@@ -56,8 +76,8 @@ const ViewInvoice = () => {
         <div className="mx-[24px] mt-[32px] mb-[16px] px-[24px] py-[24px]  rounded-[8px] flex items-baseline justify-between bg-[white]">
           <div className="flex items-baseline justify-between flex-1 md:flex-shrink-0 md:flex-grow-0">
             <h2 className="text-gray-dark-63 md:mr-[16px]">status</h2>
-            <Receipt status="pending">
-              <p className="ml-[6px] capitalize">{"pending"}</p>
+            <Receipt status={`${status}`}>
+              <p className="ml-[6px] capitalize">{status}</p>
             </Receipt>
           </div>
           <div className="font-bold text-[12px] bg-[white] px-[24px] text-[white] sm:hidden md:block">
@@ -82,75 +102,97 @@ const ViewInvoice = () => {
           </div>
         </div>
 
-        <div className="flex flex-col rounded-[8px] m-[24px] px-[24px] pb-[24px] bg-[white] text-sm text-gray-dark-63">
-          <div className="flex items-center justify-between">
-            <div>
-              <h2 className="flex-1 font-bold text-gray-dark-63 md:mt-1">
-                #<span className="text-black text-[12px]">XM9141</span>
-              </h2>
-              <h2>Graphic Design</h2>
+        {invoice && (
+          <div className="flex flex-col rounded-[8px] m-[24px] px-[24px] pb-[24px] bg-[white] text-sm text-gray-dark-63">
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="flex-1 font-bold text-gray-dark-63 md:mt-1">
+                  #<span className="text-black text-[12px]">{id}</span>
+                </h2>
+                <h2>{description}</h2>
+              </div>
+
+              <div className="mt-[30px] ">
+                {/* <p>
+                  19 Union Terrace <br />
+                  London <br />
+                  E1 3EZ <br />
+                  United Kingdom
+                </p> */}
+                <p>
+                  {senderAddress?.street} <br />
+                  {senderAddress?.city} <br />
+                  {senderAddress?.postCode} <br />
+                  {senderAddress?.country} <br />
+                </p>
+              </div>
             </div>
 
-            <div className="mt-[30px] ">
-              <p>
-                19 Union Terrace <br />
-                London <br />
-                E1 3EZ <br />
-                United Kingdom
-              </p>
+            <div className="mt-[30px] flex justify-between flex-wrap">
+              <div className="basis-[95px]">
+                <p>Invoice Date</p>
+                <h2 className="text-black font-bold text-[15px]">
+                  {/* 21 Aug 2021 */}
+                  {createdAt}
+                </h2>
+                <p>Payment Due</p>
+                <h2 className="text-black font-bold text-[15px]">
+                  {/* 20 Sep 2021 */}
+                  {paymentDue}
+                </h2>
+              </div>
+
+              <div className="basis-[95px]">
+                <p>Bill To</p>
+                <h2 className="text-black font-bold text-[15px]">
+                  {clientName}
+                </h2>
+
+                <p>
+                  {/* 84 Church Way <br />
+                  Bradford <br />
+                  BD1 9PB <br />
+                  United Kingdom */}
+                  {clientAddress?.street} <br />
+                  {clientAddress?.city} <br />
+                  {clientAddress?.postCode} <br />
+                  {clientAddress?.country} <br />
+                </p>
+              </div>
+              <div>
+                <p className="basis-[95px]">Sent to</p>
+                <h2 className="text-black font-bold text-[15px]">
+                  {clientEmail}
+                </h2>
+              </div>
+            </div>
+
+            <div className=" mt-[40px] px-[24px] pt-[24px] bg-gray-light rounded-t-[8px]">
+              {/* I'm not sure if it shounld be list or div */}
+
+              {items?.map(({ id, name, quantity, price, total }) => (
+                <ul key={id}>
+                  <li className="flex items-center justify-between mb-[24px]">
+                    <div>
+                      <h2 className="font-bold text-black">{name}</h2>
+                      <p>
+                        <span>{quantity}</span> x <span>£ {price} </span>
+                      </p>
+                    </div>
+                    <h2 className="text-bold text-[12px] font-bold">
+                      £ {total}
+                    </h2>
+                  </li>
+                </ul>
+              ))}
+            </div>
+
+            <div className="flex justify-between items-center p-[24px] bg-gray-dark-27 text-[white] rounded-b-[8px]">
+              <h2>Grand Total</h2>
+              <h2 className="text-[20px] font-bold">£ {total}</h2>
             </div>
           </div>
-
-          <div className="mt-[30px] flex justify-between flex-wrap">
-            <div className="basis-[95px]">
-              <p>Invoice Date</p>
-              <h2 className="text-black font-bold text-[15px]">21 Aug 2021</h2>
-              <p>Payment Due</p>
-              <h2 className="text-black font-bold text-[15px]">20 Sep 2021</h2>
-            </div>
-
-            <div className="basis-[95px]">
-              <p>Bill To</p>
-              <h2 className="text-black font-bold text-[15px]">Alex Grim</h2>
-
-              <p>
-                84 Church Way <br />
-                Bradford <br />
-                BD1 9PB <br />
-                United Kingdom
-              </p>
-            </div>
-            <div>
-              <p className="basis-[95px]">Sent to</p>
-              <h2 className="text-black font-bold text-[15px]">
-                alexgrim@mail.com
-              </h2>
-            </div>
-          </div>
-
-          <div className=" mt-[40px] px-[24px] pt-[24px] bg-gray-light rounded-t-[8px]">
-            {/* I'm not sure if it shounld be list or div */}
-
-            {invoiceDetail.map(({ id, itemName, qty, price }) => (
-              <ul key={id}>
-                <li className="flex items-center justify-between mb-[24px]">
-                  <div>
-                    <h2 className="font-bold text-black">{itemName}</h2>
-                    <p>
-                      <span>{qty}</span> x <span>£ {price} </span>
-                    </p>
-                  </div>
-                  <h2 className="text-bold text-[12px] font-bold">£ {price}</h2>
-                </li>
-              </ul>
-            ))}
-          </div>
-
-          <div className="flex justify-between items-center p-[24px] bg-gray-dark-27 text-[white] rounded-b-[8px]">
-            <h2>Grand Total</h2>
-            <h2 className="text-[20px] font-bold">£ 556.00</h2>
-          </div>
-        </div>
+        )}
       </main>
 
       <div className="font-bold text-[12px] mt-[56px] bg-[white] px-[24px] py-[22px] flex justify-between items-center text-[white] md:hidden">

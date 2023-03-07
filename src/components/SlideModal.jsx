@@ -19,7 +19,6 @@ const SideModal = ({ showSideModal, open, close, children }) => {
 
   return (
     <div>
-      <button onClick={open}>open modal</button>
       <Dialog
         className="modal"
         style={{

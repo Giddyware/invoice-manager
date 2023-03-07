@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { images } from "../constants";
-import { Auth } from "./auth";
+import { Authentication } from "./auth";
+// import { Auth } from "./auth";
 import Icon from "./Icon";
 import Logo from "./Logo";
 
@@ -25,7 +26,7 @@ const Header = () => {
         />
       </div>
 
-      <Auth showDialog={showDialog} close={close} />
+      <Authentication showDialog={showDialog} close={close} />
     </div>
   );
 };
