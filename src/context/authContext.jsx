@@ -1,13 +1,13 @@
 import { createContext, useContext, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-// import { useLocalStorage } from "../hooks/useLocalstorage";
-// import { useLocalStorage } from "./useLocalStorage";
+import useLocalStorage from "../hooks/useLocalStorage";
+
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  //   const [user, setUser] = useLocalStorage("user", null);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useLocalStorage("user", null);
+  // const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
   // call this function when you want to authenticate the user

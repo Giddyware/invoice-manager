@@ -1,12 +1,15 @@
 import { DialogContent, DialogOverlay } from "@reach/dialog";
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { InvoiceContext } from "../context/invoiceContext";
 
-
-const CenterModal = ({ close, showDialog }) => {
+const CenterModal = ({ id, close, showDialog }) => {
   // const [showDialog, setShowDialog] = useState(false);
+  const { invoices, deleteInvioce } = useContext(InvoiceContext);
   const buttonRef = useRef();
   //   const open = () => setShowDialog(true);
   //   const close = () => setShowDialog(false);
+  let navigate = useNavigate();
 
   return (
     <div>
@@ -26,8 +29,8 @@ const CenterModal = ({ close, showDialog }) => {
         >
           <p className="font-bold text-[24px] capitalize">confirm deletion</p>
           <p className="pt-[12px] text-gray-dark-61 leading-5 text-[14px] mb-auto">
-            Are you sure you want to delete invoice #XM9141? This action cannot
-            be undone.
+            Are you sure you want to delete invoice #{id}? This action cannot be
+            undone.
           </p>
 
           <div className="text-[white] absolute bottom-10 right-12">
@@ -41,7 +44,10 @@ const CenterModal = ({ close, showDialog }) => {
 
             <button
               ref={buttonRef}
-              onClick={close}
+              onClick={() => {
+                deleteInvioce(id);
+                navigate(-1);
+              }}
               className="px-[24px] py-[16px] rounded-full bg-urgent capitalize hover:cursor-pointer"
             >
               delete

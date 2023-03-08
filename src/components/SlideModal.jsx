@@ -9,11 +9,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import EditInvoice from "../page/EditInvoice";
 
-const SideModal = ({ showSideModal, open, close, children }) => {
-  // const [showSideModal, setShowModal] = useState(false);
-
-  // const open = () => setShowModal(true);
-  // const close = () => setShowModal(false);
+const SideModal = ({ showSideModal, open, close, invoice, children }) => {
+  console.log(invoice);
 
   const navigate = useNavigate();
 
@@ -39,14 +36,14 @@ const SideModal = ({ showSideModal, open, close, children }) => {
           className="close-button"
           style={{
             position: "fixed",
-            left: "840px",
+            left: "950px",
             top: "24px",
             fontWeight: "bold",
             color: "hsl(231deg, 20%, 61%)",
             width: "30px",
             height: "30px",
           }}
-          onClick={() => navigate(-1)}
+          onClick={close}
         >
           <VisuallyHidden>Close</VisuallyHidden>
           <span aria-hidden>X</span>

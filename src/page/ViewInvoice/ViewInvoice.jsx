@@ -36,11 +36,10 @@ const ViewInvoice = () => {
 
   const { invoices } = useContext(InvoiceContext);
   let { id } = useParams();
-  console.log("id", id);
 
   const [invoice, setInvoice] = useState({});
   let {
-    createdAt,
+    // createdAt,
     paymentDue,
     description,
     paymentTerms,
@@ -55,12 +54,8 @@ const ViewInvoice = () => {
 
   useEffect(() => {
     let invoiceData = invoices.find((invoice) => invoice.id === id);
-    // let foo = invoices.map((invoice) =>
-    //   console.log(Boolean(invoice.id === id))
-    // );
     setInvoice(invoiceData);
   }, [id, invoices]);
-  console.log("items", items);
 
   return (
     <div className="flex flex-col bg-gray-light lg:flex-row">
@@ -102,7 +97,7 @@ const ViewInvoice = () => {
           </div>
         </div>
 
-        {invoice && (
+        {!!invoice && (
           <div className="flex flex-col rounded-[8px] m-[24px] px-[24px] pb-[24px] bg-[white] text-sm text-gray-dark-63">
             <div className="flex items-center justify-between">
               <div>
@@ -113,12 +108,6 @@ const ViewInvoice = () => {
               </div>
 
               <div className="mt-[30px] ">
-                {/* <p>
-                  19 Union Terrace <br />
-                  London <br />
-                  E1 3EZ <br />
-                  United Kingdom
-                </p> */}
                 <p>
                   {senderAddress?.street} <br />
                   {senderAddress?.city} <br />
@@ -133,7 +122,7 @@ const ViewInvoice = () => {
                 <p>Invoice Date</p>
                 <h2 className="text-black font-bold text-[15px]">
                   {/* 21 Aug 2021 */}
-                  {createdAt}
+                  {/* {createdAt} */}
                 </h2>
                 <p>Payment Due</p>
                 <h2 className="text-black font-bold text-[15px]">
@@ -149,10 +138,6 @@ const ViewInvoice = () => {
                 </h2>
 
                 <p>
-                  {/* 84 Church Way <br />
-                  Bradford <br />
-                  BD1 9PB <br />
-                  United Kingdom */}
                   {clientAddress?.street} <br />
                   {clientAddress?.city} <br />
                   {clientAddress?.postCode} <br />
@@ -171,7 +156,7 @@ const ViewInvoice = () => {
               {/* I'm not sure if it shounld be list or div */}
 
               {items?.map(({ id, name, quantity, price, total }) => (
-                <ul key={id}>
+                <ul key={name}>
                   <li className="flex items-center justify-between mb-[24px]">
                     <div>
                       <h2 className="font-bold text-black">{name}</h2>
@@ -219,6 +204,7 @@ const ViewInvoice = () => {
       </div>
 
       <CenterModal
+        id={id}
         open={openCenterModal}
         close={closeCenterModal}
         showDialog={showCenterModal}
@@ -228,8 +214,9 @@ const ViewInvoice = () => {
         showSideModal={showSideModal}
         open={openSideModal}
         close={closeSideModal}
+        // invoice={invoice}
       >
-        <EditInvoice />
+        <EditInvoice invoice={invoice} />
       </SideModal>
     </div>
   );

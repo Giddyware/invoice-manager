@@ -2,7 +2,7 @@ import { useState } from "react";
 import CheckedModal from "./CheckedModal";
 import Icon from "./Icon";
 
-const Nav = () => {
+const Nav = ({ length }) => {
   const [showCheckedModal, setCheckedModal] = useState(false);
 
   const openCheckedModal = () => setCheckedModal(true);
@@ -13,9 +13,9 @@ const Nav = () => {
       <div>
         <h1 className="font-bold text-[20px]">Invoices</h1>
         <p className="text-[gray] text-[12px]">
-          <span className="mr-1 md:hidden">7 invoices</span>
+          <span className="mr-1 md:hidden">{length} invoices</span>
           <span className="hidden mr-1 md:inline">
-            There are 7 total invoices
+            There are {length} total invoices
           </span>
         </p>
       </div>
@@ -51,7 +51,7 @@ const Nav = () => {
               strokeWidth={3}
             />
           </span>
-          <p onClick={()=>{}} className="text-sm font-[500] pr-[8px]">
+          <p onClick={() => {}} className="text-sm font-[500] pr-[8px]">
             New
             <span className="hidden pl-1 md:inline">Invoice</span>{" "}
           </p>

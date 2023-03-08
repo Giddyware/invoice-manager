@@ -1,13 +1,27 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { AiFillDelete } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import Input from "../../components/FormItem";
 import Header from "../../components/Header";
 import Icon from "../../components/Icon";
 import ItemList from "../../components/ItemList";
+import { InvoiceContext } from "../../context/invoiceContext";
 
-const EditInvoice = () => {
-  const [date, setDate] = useState(0);
+const EditInvoice = ({ invoice }) => {
+  const [clientName, setClientName] = useState(invoice.clientName);
+  const [clientEmail, setClientEmail] = useState(invoice.clientEmail);
+  const [paymentTerms, setPaymentTerms] = useState(invoice.paymentTerms);
+  const [status, setStatus] = useState(invoice.status);
+  const [description, setDescription] = useState(invoice.description);
+  const [items, setItems] = useState(invoice.items);
+  const [total, setTotal] = useState(invoice.total);
+  const [clientStreetAddress, setClientStreetAddress] = useState(
+    invoice.clientAddress
+  );
+  const [senderAddress, setSenderAddress] = useState(invoice.senderAddress);
+
+  const { updateInvoice } = useContext(InvoiceContext);
+  const id = invoice.id;
 
   const navigate = useNavigate();
 
@@ -15,18 +29,22 @@ const EditInvoice = () => {
     {
       id: "1",
       day: "1",
+      select: false,
     },
     {
       id: "2",
       day: "7",
+      select: false,
     },
     {
       id: "3",
       day: "14",
+      select: false,
     },
     {
       id: "4",
       day: "30",
+      select: false,
     },
   ];
 
@@ -43,18 +61,19 @@ const EditInvoice = () => {
           <h3 className="ml-[24px] font-bold text-[12px]">Go back</h3>
         </div>
 
-        <h2 className="mt-[24px] font-bold text-[24px]">Edit #XM9141</h2>
+        <h2 className="mt-[24px] font-bold text-[24px]">Edit #{id}</h2>
         <h3 className="my-[24px] font-bold text-[12px] text-primary">
           Bill From
         </h3>
 
         <form className="text-gray-dark-63 font-[12px]" type="" action="">
           <Input
-            id="street"
-            name="street"
-            label="Name"
+            id="streetAddress"
+            name="streetAddress"
+            label="Street Address"
             placeholder="19 Union Terrace"
             type="text"
+            value={clientStreetAddress.street}
           />
 
           <div className="flex justify-between my-[24px]">
@@ -64,6 +83,7 @@ const EditInvoice = () => {
               label="City"
               placeholder="London"
               type="text"
+              value={clientStreetAddress.city}
             />
             <Input
               id="postCode"
@@ -71,52 +91,67 @@ const EditInvoice = () => {
               label="Post Code"
               placeholder="E1 3EZ"
               type="text"
+              value={clientStreetAddress.postCode}
+            />
+
+            <Input
+              id="Country"
+              name="Country"
+              label="Country"
+              placeholder="United Kingdom"
+              type="text"
+              value={clientStreetAddress.country}
             />
           </div>
-
-          <Input
-            id="Country"
-            name="Country"
-            label="Country"
-            placeholder="United Kingdom"
-            type="text"
-          />
 
           <h2 className="my-[24px] font-bold text-[12px] text-primary">
             Bill To
           </h2>
 
           <Input
-            id="Client's Name Address"
-            name="Client's Name Address"
+            id="Client's Name"
+            name="Client's Name"
             label="Client's Name Address"
-            placeholder="United Kingdom"
+            // placeholder="United"
             type="text"
+            value={clientName}
+          />
+
+          <Input
+            id="ClientEmail"
+            name="Client’s Email"
+            label="Client’s Email"
+            placeholder="johndoe@example.com"
+            type="text"
+            value={clientEmail}
           />
 
           <Input
             id="streetAddress2"
-            name="Street Address"
+            name="StreetAddress"
             label="Street Address"
             placeholder="84 Church Way"
             type="text"
+            value={senderAddress.street}
           />
 
-          <div className="flex justify-between mb-[24px]">
+          <div className="flex justify-between mb-[24px] gap-x-6">
             <Input
               id="city2"
               name="city2"
               label="City"
               placeholder="Bradford"
               type="text"
+              value={senderAddress.city}
             />
 
             <Input
-              id="Post Code2"
-              name="Post Code2"
-              label="Post Code"
+              id="PostCode2"
+              name="PostCode2"
+              label="PostCode"
               placeholder="BD1 9PB"
               type="text"
+              value={senderAddress.postCode}
             />
             <Input
               id="Country"
@@ -124,6 +159,7 @@ const EditInvoice = () => {
               label="Country"
               placeholder="BD1 9PB"
               type="text"
+              value={senderAddress.country}
             />
           </div>
 
@@ -152,10 +188,12 @@ const EditInvoice = () => {
                 id="paymentTerms"
                 className="block w-full p-3 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 "
               >
-                <option selected>Choose a payment Term</option>
-
-                {paymentTermList.map(({ id, day }) => (
-                  <option className="hover:text-primary" value={day}>
+                {paymentTermList.map(({ id, day, select }) => (
+                  <option
+                    className="hover:text-primary"
+                    selected={!select ? day === paymentTerms.toString() : false}
+                    value={paymentTerms}
+                  >
                     Net {day} Day
                   </option>
                 ))}
@@ -167,13 +205,14 @@ const EditInvoice = () => {
             name="Project Description"
             label="Project Description"
             placeholder="Graphic Design"
+            value={description}
           />
 
           <h2 className="my-[24px] font-bold text-[18px] text-gray-dark-61">
             Item List
           </h2>
 
-          <ItemList />
+          <ItemList items={items} />
 
           <div className="w-full p-4 font-bold text-center rounded-3xl text-gray-dark-63 bg-gray">
             + Add New Item
