@@ -8,19 +8,20 @@ import ItemList from "../../components/ItemList";
 import { InvoiceContext } from "../../context/invoiceContext";
 
 const EditInvoice = ({ invoice }) => {
-  const [clientName, setClientName] = useState(invoice.clientName);
-  const [clientEmail, setClientEmail] = useState(invoice.clientEmail);
-  const [paymentTerms, setPaymentTerms] = useState(invoice.paymentTerms);
-  const [status, setStatus] = useState(invoice.status);
-  const [description, setDescription] = useState(invoice.description);
-  const [items, setItems] = useState(invoice.items);
-  const [total, setTotal] = useState(invoice.total);
-  const [clientStreetAddress, setClientStreetAddress] = useState(
-    invoice.clientAddress
-  );
-  const [senderAddress, setSenderAddress] = useState(invoice.senderAddress);
+  // const [clientName, setClientName] = useState(invoice.clientName);
+  // const [clientEmail, setClientEmail] = useState(invoice.clientEmail);
+  // const [paymentTerms, setPaymentTerms] = useState(invoice.paymentTerms);
+  // const [status, setStatus] = useState(invoice.status);
+  // const [createdAt, setCreatedAt] = useState(invoice.createdAt);
+  // const [description, setDescription] = useState(invoice.description);
+  // const [items, setItems] = useState(invoice.items);
+  // const [total, setTotal] = useState(invoice.total);
+  // const [clientAddress, setClientAddress] = useState(invoice.clientAddress);
+  // const [senderAddress, setSenderAddress] = useState(invoice.senderAddress);
 
-  const { updateInvoice } = useContext(InvoiceContext);
+  const [client, setClient] = useState({ invoice });
+
+
   const id = invoice.id;
 
   const navigate = useNavigate();
@@ -48,6 +49,12 @@ const EditInvoice = ({ invoice }) => {
     },
   ];
 
+  function handleSubmit(event, name) {
+    // const value = event.target.[name];
+    const value = event.target;
+    console.log(event);
+  }
+
   return (
     <div className="flex flex-col bg-white-light lg:flex-row">
       <Header />
@@ -66,14 +73,22 @@ const EditInvoice = ({ invoice }) => {
           Bill From
         </h3>
 
-        <form className="text-gray-dark-63 font-[12px]" type="" action="">
+        <form
+          onSubmit={(e) => handleSubmit(e)}
+          className="text-gray-dark-63 font-[12px]"
+        >
           <Input
             id="streetAddress"
             name="streetAddress"
             label="Street Address"
             placeholder="19 Union Terrace"
             type="text"
-            value={clientStreetAddress.street}
+            value={client?.senderAddress?.street}
+            // onChange={(e) =>
+            //   setClient({
+            //     ...client,
+            //   })
+            // }
           />
 
           <div className="flex justify-between my-[24px]">
@@ -83,7 +98,13 @@ const EditInvoice = ({ invoice }) => {
               label="City"
               placeholder="London"
               type="text"
-              value={clientStreetAddress.city}
+              value={client.city}
+              onChange={(e) =>
+                setClient({
+                  ...client,
+                  city: e.target.value,
+                })
+              }
             />
             <Input
               id="postCode"
@@ -91,7 +112,13 @@ const EditInvoice = ({ invoice }) => {
               label="Post Code"
               placeholder="E1 3EZ"
               type="text"
-              value={clientStreetAddress.postCode}
+              value={client.postCode}
+              onChange={(e) =>
+                setClient({
+                  ...client,
+                  postCode: e.target.value,
+                })
+              }
             />
 
             <Input
@@ -100,7 +127,13 @@ const EditInvoice = ({ invoice }) => {
               label="Country"
               placeholder="United Kingdom"
               type="text"
-              value={clientStreetAddress.country}
+              value={client.country}
+              onChange={(e) =>
+                setClient({
+                  ...client,
+                  country: e.target.value,
+                })
+              }
             />
           </div>
 
@@ -111,10 +144,12 @@ const EditInvoice = ({ invoice }) => {
           <Input
             id="Client's Name"
             name="Client's Name"
-            label="Client's Name Address"
-            // placeholder="United"
+            label="Client's Name"
+            placeholder="United"
             type="text"
-            value={clientName}
+          
+            deflaueValue={client.clientName}
+            onChange={(e) => setClient(e.target.value)}
           />
 
           <Input
@@ -123,7 +158,8 @@ const EditInvoice = ({ invoice }) => {
             label="Client’s Email"
             placeholder="johndoe@example.com"
             type="text"
-            value={clientEmail}
+            // value={clientEmail}
+            // onChange={(e) => setClientEmail(e.target.value)}
           />
 
           <Input
@@ -132,7 +168,10 @@ const EditInvoice = ({ invoice }) => {
             label="Street Address"
             placeholder="84 Church Way"
             type="text"
-            value={senderAddress.street}
+            // value={senderAddress.street}
+            // onChange={(e) =>
+            //   setSenderAddress({ ...senderAddress, street: e.target.value })
+            // }
           />
 
           <div className="flex justify-between mb-[24px] gap-x-6">
@@ -142,7 +181,10 @@ const EditInvoice = ({ invoice }) => {
               label="City"
               placeholder="Bradford"
               type="text"
-              value={senderAddress.city}
+              // value={senderAddress.city}
+              // onChange={(e) =>
+              //   setSenderAddress({ ...senderAddress, city: e.target.value })
+              // }
             />
 
             <Input
@@ -151,7 +193,10 @@ const EditInvoice = ({ invoice }) => {
               label="PostCode"
               placeholder="BD1 9PB"
               type="text"
-              value={senderAddress.postCode}
+              // value={senderAddress.postCode}
+              // onChange={(e) =>
+              //   setSenderAddress({ ...senderAddress, postCode: e.target.value })
+              // }
             />
             <Input
               id="Country"
@@ -159,7 +204,10 @@ const EditInvoice = ({ invoice }) => {
               label="Country"
               placeholder="BD1 9PB"
               type="text"
-              value={senderAddress.country}
+              // value={senderAddress.country}
+              // onChange={(e) =>
+              //   setSenderAddress({ ...senderAddress, country: e.target.value })
+              // }
             />
           </div>
 
@@ -170,16 +218,17 @@ const EditInvoice = ({ invoice }) => {
               </label>
 
               <input
-                datepicker
                 type="date"
                 className="bg-gray-50 shadow-sm border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-200 focus:ring-opacity-50 block w-full pl-10 p-2.5"
                 placeholder="Select date"
+                // value={createdAt}
+                // onChange={(e) => setCreatedAt(e.target.value)}
               />
             </div>
 
             <div className="flex-1 ml-6">
               <label
-                Htmlfor="paymentTerms"
+                htmlFor="paymentTerms"
                 className="block mb-2 text-sm text-gray-900"
               >
                 Payment Terms
@@ -190,9 +239,13 @@ const EditInvoice = ({ invoice }) => {
               >
                 {paymentTermList.map(({ id, day, select }) => (
                   <option
+                    key={id}
                     className="hover:text-primary"
-                    selected={!select ? day === paymentTerms.toString() : false}
-                    value={paymentTerms}
+                    // defaultValue={
+                    //   !select ? day === paymentTerms.toString() : false
+                    // }
+                    // value={paymentTerms}
+                    // onChange={(e) => setPaymentTerms(e.target.value)}
                   >
                     Net {day} Day
                   </option>
@@ -205,16 +258,17 @@ const EditInvoice = ({ invoice }) => {
             name="Project Description"
             label="Project Description"
             placeholder="Graphic Design"
-            value={description}
+            // value={description}
+            // onChange={(e) => setDescription(e.target.value)}
           />
 
           <h2 className="my-[24px] font-bold text-[18px] text-gray-dark-61">
             Item List
           </h2>
 
-          <ItemList items={items} />
+          {/* <ItemList previtems={items} /> */}
 
-          <div className="w-full p-4 font-bold text-center rounded-3xl text-gray-dark-63 bg-gray">
+          <div className="w-full p-4 font-bold text-center rounded-3xl text-gray-dark-63 bg-gray hover:cursor-pointer">
             + Add New Item
           </div>
         </form>
@@ -226,7 +280,11 @@ const EditInvoice = ({ invoice }) => {
           <button className="px-[24px] py-[16px] md:mr-[8px] bg-draft-light rounded-full capitalize text-gray-dark-63 hover:bg-gray">
             cancel
           </button>
-          <button className="px-[24px] py-[16px] rounded-full bg-primary capitalize hover:bg-primary-light text-[white]">
+          <button
+            type="submit"
+            // onClick={() => console.log("save button")}
+            className="px-[24px] py-[16px] rounded-full bg-primary capitalize hover:bg-primary-light text-[white]"
+          >
             Save Changes
           </button>
         </div>

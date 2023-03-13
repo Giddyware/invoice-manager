@@ -78,7 +78,7 @@ const ViewInvoice = () => {
           <div className="font-bold text-[12px] bg-[white] px-[24px] text-[white] sm:hidden md:block">
             <Link
               state={{ background: location }}
-              // to="/edit-invoice"
+              // to="edit-invoice"
               onClick={openSideModal}
             >
               <button className="px-[24px] py-[16px] md:mr-[8px] bg-draft-light rounded-full capitalize text-primary-light hover:bg-gray">

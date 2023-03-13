@@ -10,8 +10,6 @@ import { useNavigate } from "react-router-dom";
 import EditInvoice from "../page/EditInvoice";
 
 const SideModal = ({ showSideModal, open, close, invoice, children }) => {
-  console.log(invoice);
-
   const navigate = useNavigate();
 
   return (
@@ -36,7 +34,7 @@ const SideModal = ({ showSideModal, open, close, invoice, children }) => {
           className="close-button"
           style={{
             position: "fixed",
-            left: "950px",
+            left: "1000px",
             top: "24px",
             fontWeight: "bold",
             color: "hsl(231deg, 20%, 61%)",

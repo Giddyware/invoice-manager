@@ -1,29 +1,29 @@
 import { useState } from "react";
 import { AiFillDelete } from "react-icons/ai";
 
-const ItemList = ({ items }) => {
-  const [name, setName] = useState(items.name);
-  const [quantity, setQuantity] = useState(items.quantity);
-  const [price, setPrice] = useState(items.price);
-  const [total, settotal] = useState(items.total);
+const ItemList = ({ previtems }) => {
+  const [items, setItems] = useState(previtems);
+
+  const onBlurHandler = (e) => {
+    console.dir(e.target);
+  };
 
   return (
     <>
-      {items.map(({ name, quantity, price, total }) => (
+      {previtems.map(({ name, quantity, price, total }) => (
         <div key={name} className="flex w-full">
           <div className="flex-1 mr-6">
-            <label
-              className="block max-w-[200px] mb-[10px]"
-              htmlFor="Item Name"
-            >
+            <label className="block max-w-[200px] mb-[10px]" htmlFor="ItemName">
               Item Name
             </label>
             <input
               className="w-full px-[20px] mb-[24px] py-[16px] h-[48px] rounded-[4px] border-solid border border-gray lg:block lg:w-full"
               type="text"
-              name="Item Name"
-              id="Item Name"
-              value={name}
+              name="ItemName"
+              id="ItemName"
+              defaultValue={name}
+              // onChange={(e) => setItems({ ...items, name: e.target.value })}
+              onBlur={onBlurHandler}
             />
           </div>
           <div className="max-w-[46px]">
@@ -35,7 +35,8 @@ const ItemList = ({ items }) => {
               type="number"
               name="Qty"
               id="Qty"
-              value={quantity}
+              defaultValue={quantity}
+              // onChange={(e) => setItems({ ...items, quantity: e.target.value })}
             />
           </div>
 
@@ -48,7 +49,8 @@ const ItemList = ({ items }) => {
               type="number"
               name="price"
               id="price"
-              value={price}
+              defaultValue={price}
+              // onChange={(e) => setItems({ ...items, price: e.target.value })}
             />
           </div>
 
@@ -59,7 +61,7 @@ const ItemList = ({ items }) => {
             <h3 className="pt-3">{total}</h3>
           </div>
 
-          <AiFillDelete className="relative text-xl top-10" />
+          <AiFillDelete className="relative text-xl top-10 hover:cursor-pointer" />
         </div>
       ))}
     </>
