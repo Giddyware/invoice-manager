@@ -2,7 +2,7 @@ import { useState } from "react";
 import CheckedModal from "./CheckedModal";
 import Icon from "./Icon";
 
-const Nav = ({ length }) => {
+const Nav = ({ length, open }) => {
   const [showCheckedModal, setCheckedModal] = useState(false);
 
   const openCheckedModal = () => setCheckedModal(true);
@@ -39,9 +39,10 @@ const Nav = ({ length }) => {
         </div>
 
         <button
-          aria-label="Activate dark mode"
-          className="text-offWhite rounded-full items-center justify-between flex bg-primary ml-[18px] p-[10px] hover:bg-primary-light"
+          aria-label="toggle create invoice modal"
           type="submit"
+          className="text-offWhite rounded-full items-center justify-between flex bg-primary ml-[18px] p-[10px] hover:bg-primary-light"
+          onClick={open}
         >
           <span className="p-1 mr-3 rounded-full bg-offWhite">
             <Icon
@@ -51,7 +52,7 @@ const Nav = ({ length }) => {
               strokeWidth={3}
             />
           </span>
-          <p onClick={() => {}} className="text-sm font-[500] pr-[8px]">
+          <p className="text-sm font-[500] pr-[8px]">
             New
             <span className="hidden pl-1 md:inline">Invoice</span>{" "}
           </p>

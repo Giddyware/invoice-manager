@@ -61,7 +61,7 @@ const ItemList = ({ previtems }) => {
             <h3 className="pt-3">{total}</h3>
           </div>
 
-          <AiFillDelete className="relative text-xl top-10 hover:cursor-pointer" />
+          <AiFillDelete className="relative text-xl top-10 hover:cursor-pointer hover:text-[urgent]" />
         </div>
       ))}
     </>
