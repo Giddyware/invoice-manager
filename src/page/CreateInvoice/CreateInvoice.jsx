@@ -91,7 +91,6 @@ const CreateInvoice = () => {
     if (client.clientName.trim() === "") {
       errors.clientName = "Please enter your name";
     }
-    console.log(client.clientEmail);
 
     // // Age validation
     // if (client.age.trim() === '') {
@@ -104,9 +103,9 @@ const CreateInvoice = () => {
 
     // clientEmail validation
     if (client.clientEmail.trim() === "") {
-      errors.clientEmail = "Please enter your clientEmail";
+      errors.clientEmail = "Please enter your Email";
     } else if (!/\S+@\S+\.\S+/.test(client.clientEmail)) {
-      errors.clientEmail = "Please enter a valid clientEmail";
+      errors.clientEmail = "Please enter a valid Email";
     }
 
     // Password validation
@@ -125,17 +124,17 @@ const CreateInvoice = () => {
 
     // Street validation
     if (client.senderAddress.street.trim() === "") {
-      errors.senderAddress.street = "Please enter your street senderAddress";
+      errors.senderAddress.street = "Please enter your sender's street";
     }
 
     // City validation
     if (client.senderAddress.city.trim() === "") {
-      errors.senderAddress.city = "Please enter your city";
+      errors.senderAddress.city = "Please enter your sender's city";
     }
 
     // State validation
-    if (client.senderAddress.city.trim() === "") {
-      errors.senderAddress.city = "Please enter your city";
+    if (client.senderAddress.country.trim() === "") {
+      errors.senderAddress.country = "Please enter your country";
     }
 
     // ZIP validation
@@ -146,6 +145,36 @@ const CreateInvoice = () => {
       errors.senderAddress.postCode = "Please enter your Post Code";
     } else if (!zipRegex.test(client.senderAddress.zip)) {
       errors.senderAddress.postCode = "Please enter a valid Post Code";
+    }
+
+    // Street validation
+    if (client.clientAddress.street.trim() === "") {
+      errors.clientAddress.street = "Please enter your sender's street";
+    }
+
+    // City validation
+    if (client.clientAddress.city.trim() === "") {
+      errors.clientAddress.city = "Please enter your sender's city";
+    }
+
+    // State validation
+    if (client.clientAddress.country.trim() === "") {
+      errors.clientAddress.country = "Please enter your country";
+    }
+
+    // ZIP validation
+
+    // Validate ZIP format (5 digits or 5 digits + 4)
+    // const zipRegex = /^\d{5}(?:[-\s]\d{4})?$/;
+    if (client.clientAddress.postCode.trim() === "") {
+      errors.clientAddress.postCode = "Please enter your Post Code";
+    } else if (!zipRegex.test(client.clientAddress.zip)) {
+      errors.clientAddress.postCode = "Please enter a valid Post Code";
+    }
+
+    // State validation
+    if (client.description.trim() === "") {
+      errors.description = "Please enter your description";
     }
 
     // Set the form errors
@@ -234,10 +263,11 @@ const CreateInvoice = () => {
             id="streetAddress"
             name="senderAddress.street"
             label="Street Address"
-            placeholder="19 Union Terrace"
+            // placeholder="19 Union Terrace"
             type="text"
             value={client.senderAddress.street}
             onChange={handleChange}
+            isError={!!formErrors.senderAddress.street}
           />
 
           <div className="flex justify-between my-[24px]">
@@ -245,29 +275,32 @@ const CreateInvoice = () => {
               id="city"
               name="senderAddress.city"
               label="City"
-              placeholder="London"
+              // placeholder="London"
               type="text"
               value={client.senderAddress.city}
               onChange={handleChange}
+              isError={!!formErrors.senderAddress.city}
             />
             <Input
               id="postCode"
               name="senderAddress.postCode"
               label="Post Code"
-              placeholder="E1 3EZ"
+              // placeholder="E1 3EZ"
               type="text"
               value={client.senderAddress.postCode}
               onChange={handleChange}
+              isError={!!formErrors.senderAddress.postCode}
             />
 
             <Input
               id="Country"
               name="senderAddress.country"
               label="Country"
-              placeholder="United Kingdom"
+              // placeholder="United Kingdom"
               type="text"
               value={client.senderAddress.country}
               onChange={handleChange}
+              isError={!!formErrors.senderAddress.country}
             />
           </div>
 
@@ -279,32 +312,36 @@ const CreateInvoice = () => {
             id="Client's Name"
             name="clientName"
             label="Client's Name"
-            placeholder="John Doe"
+            // placeholder="John Doe"
             type="text"
             defaultValue={client.clientName}
             onChange={handleChange}
             isError={!!formErrors.clientName}
+            formError={formErrors.clientName}
           />
-          {console.log(!!client.clientName)}
 
           <Input
             id="ClientEmail"
             name="clientEmail"
             label="Client’s Email"
-            placeholder="johndoe@example.com"
+            // placeholder="johndoe@example.com"
             type="text"
             value={client.clientEmail}
             onChange={handleChange}
+            isError={!!formErrors.clientEmail}
+            formError={formErrors.clientEmail}
           />
 
           <Input
             id="streetAddress2"
             name="clientAddress.street"
             label="Street Address"
-            placeholder="84 Church Way"
+            // placeholder="84 Church Way"
             type="text"
             value={client.clientAddress.street}
             onChange={handleChange}
+            isError={!!formErrors.clientAddress.street}
+            formError={formErrors.clientAddress.street}
           />
 
           <div className="flex justify-between mb-[24px] gap-x-6">
@@ -312,29 +349,32 @@ const CreateInvoice = () => {
               id="city2"
               name="clientAddress.city"
               label="City"
-              placeholder="Bradford"
+              // placeholder="Bradford"
               type="text"
               value={client.clientAddress.city}
               onChange={handleChange}
+              isError={!!formErrors.clientAddress.city}
             />
 
             <Input
               id="PostCode2"
               name="clientAddress.postCode"
               label="PostCode"
-              placeholder="BD1 9PB"
+              // placeholder="BD1 9PB"
               type="text"
               value={client.clientAddress.postCode}
               onChange={handleChange}
+              isError={!!formErrors.clientAddress.postCode}
             />
             <Input
               id="Country"
               name="clientAddress.country"
               label="Country"
-              placeholder="BD1 9PB"
+              // placeholder="BD1 9PB"
               type="text"
               value={client.clientAddress.country}
               onChange={handleChange}
+              isError={!!formErrors.clientAddress.country}
             />
           </div>
 
@@ -382,9 +422,10 @@ const CreateInvoice = () => {
             id="Project Description"
             name="description"
             label="Project Description"
-            placeholder="Graphic Design"
+            // placeholder="Graphic Design"
             value={client.description}
             onChange={handleChange}
+            isError={!!formErrors.description}
           />
 
           <h2 className="my-[24px] font-bold text-[18px] text-gray-dark-61">
