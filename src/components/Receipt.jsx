@@ -17,7 +17,7 @@ const Receipt = ({ status = "pending", children, ...props }) => {
         `${classes.base} 
         ${classes.status[status]}`
       )}
-      {...props.className}
+      {...props}
     >
       <CircleDot status={status} />
       {children}

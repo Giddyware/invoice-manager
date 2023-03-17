@@ -256,7 +256,7 @@ const CreateInvoice = () => {
         <h2 className="mt-[24px] font-bold text-[24px]">New Invoice</h2>
 
         <form onSubmit={handleSubmit} className="text-gray-dark-63 font-[12px]">
-          <h3 className="my-[24px] font-bold text-[12px] text-primary">
+          <h3 className="my-[24px] font-bold text-[12px] text-primary font">
             Bill From
           </h3>
           <Input
