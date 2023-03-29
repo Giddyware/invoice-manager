@@ -64,7 +64,7 @@ export const Authentication = ({ showDialog, close }) => {
             <span aria-hidden>X</span>
           </button>
           <div className="flex-1 rounded-tl-lg rounded-bl-lg bgImg">
-            <h1 className="text-[white] font-bold text-5xl max-w-min relative top-24 left-14 glass-effect px-8 py-14">
+            <h1 className="text-neutral-100 font-bold text-5xl max-w-min relative top-24 left-14 glass-effect px-8 py-14">
               <span className="">
                 <BiCaretRight />
               </span>
@@ -89,7 +89,7 @@ export const Authentication = ({ showDialog, close }) => {
                 />
                 <label
                   htmlFor=""
-                  className="absolute text-sm text-gray-dark-63 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[white] px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+                  className="absolute text-sm text-gray-dark-63 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-neutral-100 px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
                 >
                   Email
                 </label>
@@ -109,7 +109,7 @@ export const Authentication = ({ showDialog, close }) => {
                 />
                 <label
                   htmlFor=""
-                  className="absolute text-sm text-gray-dark-63 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-[white] px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
+                  className="absolute text-sm text-gray-dark-63 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-neutral-100 px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1"
                 >
                   Password
                 </label>
@@ -131,15 +131,15 @@ export const Authentication = ({ showDialog, close }) => {
             </div>
             <button
               type="button"
-              className="text-[white] bg-gradient-to-br from-primary to-gray-dark-63 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 w-full mt-4"
+              className="text-neutral-100 bg-gradient-to-br from-primary to-gray-dark-63 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 w-full mt-4"
               onClick={signIn}
             >
               Login
             </button>
             <div className="my-10">
-              <hr className="mb-[10px] p-0 border-gray-light overflow-visible text-center after:content-['Or'] after:inline-block after:relative after:top-[-12px] after:bg-[white] after:px-[16px]"></hr>
+              <hr className="mb-[10px] p-0 border-brand-100 overflow-visible text-center after:content-['Or'] after:inline-block after:relative after:top-[-12px] after:bg-neutral-100 after:px-[16px]"></hr>
               {/* <span>Or</span> */}
-              {/* <hr className="mb-[10px] p-0 border-gray-light  text-center"></hr> */}
+              {/* <hr className="mb-[10px] p-0 border-brand-100  text-center"></hr> */}
             </div>
             <button
               type="button"

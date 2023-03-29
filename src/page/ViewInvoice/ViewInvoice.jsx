@@ -58,7 +58,7 @@ const ViewInvoice = () => {
   }, [id, invoices]);
 
   return (
-    <div className="flex flex-col bg-gray-light lg:flex-row">
+    <div className="flex flex-col bg-brand-100 lg:flex-row">
       <Header />
       <main className="px-[24px] h-full py-[32px] md:py-[56px] md:px-[48px] lg:flex-1 lg:px-[140px] lg:py-[72px]">
         <div
@@ -68,14 +68,14 @@ const ViewInvoice = () => {
           <Icon id="arrow-left" />
           <h3 className="ml-[24px] font-bold text-[12px]">Go back</h3>
         </div>
-        <div className="mx-[24px] mt-[32px] mb-[16px] px-[24px] py-[24px]  rounded-[8px] flex items-baseline justify-between bg-[white]">
+        <div className="mx-[24px] mt-[32px] mb-[16px] px-[24px] py-[24px]  rounded-150 flex items-baseline justify-between bg-neutral-100">
           <div className="flex items-baseline justify-between flex-1 md:flex-shrink-0 md:flex-grow-0">
             <h2 className="text-gray-dark-63 md:mr-[16px]">status</h2>
             <Receipt status={`${status}`}>
               <p className="ml-[6px] capitalize">{status}</p>
             </Receipt>
           </div>
-          <div className="font-bold text-[12px] bg-[white] px-[24px] text-[white] sm:hidden md:block">
+          <div className="font-bold text-[12px] bg-neutral-100 px-[24px] text-neutral-100 sm:hidden md:block">
             <Link
               state={{ background: location }}
               // to="edit-invoice"
@@ -91,14 +91,14 @@ const ViewInvoice = () => {
             >
               delete
             </button>
-            <button className="px-[24px] py-[16px] rounded-full bg-primary capitalize hover:bg-primary-light">
+            <button className="px-[24px] py-[16px] rounded-full bg-brand-450 capitalize hover:bg-brand-450-light">
               mark as paid
             </button>
           </div>
         </div>
 
         {!!invoice && (
-          <div className="flex flex-col rounded-[8px] m-[24px] px-[24px] pb-[24px] bg-[white] text-sm text-gray-dark-63">
+          <div className="flex flex-col rounded-150 m-[24px] px-[24px] pb-[24px] bg-neutral-100 text-sm text-gray-dark-63">
             <div className="flex items-center justify-between">
               <div>
                 <h2 className="flex-1 font-bold text-gray-dark-63 md:mt-1">
@@ -152,7 +152,7 @@ const ViewInvoice = () => {
               </div>
             </div>
 
-            <div className=" mt-[40px] px-[24px] pt-[24px] bg-gray-light rounded-t-[8px]">
+            <div className=" mt-[40px] px-[24px] pt-[24px] bg-brand-100 rounded-t-[8px]">
               {/* I'm not sure if it shounld be list or div */}
 
               {items?.map(({ id, name, quantity, price, total }) => (
@@ -172,7 +172,7 @@ const ViewInvoice = () => {
               ))}
             </div>
 
-            <div className="flex justify-between items-center p-[24px] bg-gray-dark-27 text-[white] rounded-b-[8px]">
+            <div className="flex justify-between items-center p-[24px] bg-brand-800 text-neutral-100 rounded-b-[8px]">
               <h2>Grand Total</h2>
               <h2 className="text-[20px] font-bold">£ {total}</h2>
             </div>
@@ -180,7 +180,7 @@ const ViewInvoice = () => {
         )}
       </main>
 
-      <div className="font-bold text-[12px] mt-[56px] bg-[white] px-[24px] py-[22px] flex justify-between items-center text-[white] md:hidden">
+      <div className="font-bold text-[12px] mt-[56px] bg-neutral-100 px-[24px] py-[22px] flex justify-between items-center text-neutral-100 md:hidden">
         <Link
           state={{ background: location }}
           // to="/edit-invoice"
@@ -196,7 +196,7 @@ const ViewInvoice = () => {
         >
           delete
         </button>
-        <button className="px-[24px] py-[16px] rounded-full bg-primary capitalize">
+        <button className="px-[24px] py-[16px] rounded-full bg-brand-450 capitalize">
           mark as paid
         </button>
 

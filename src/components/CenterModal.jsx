@@ -33,7 +33,7 @@ const CenterModal = ({ id, close, showDialog }) => {
             undone.
           </p>
 
-          <div className="text-[white] absolute bottom-10 right-12">
+          <div className="text-neutral-100 absolute bottom-10 right-12">
             <button
               onClick={close}
               ref={buttonRef}

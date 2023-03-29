@@ -12,7 +12,7 @@ const Nav = ({ length, open }) => {
     <div className="flex items-baseline justify-between mt-1">
       <div>
         <h1 className="font-bold text-[20px]">Invoices</h1>
-        <p className="text-[gray] text-[12px]">
+        <p className="text-gray text-[12px]">
           <span className="mr-1 md:hidden">{length} invoices</span>
           <span className="hidden mr-1 md:inline">
             There are {length} total invoices
@@ -41,10 +41,10 @@ const Nav = ({ length, open }) => {
         <button
           aria-label="toggle create invoice modal"
           type="submit"
-          className="text-offWhite rounded-full items-center justify-between flex bg-primary ml-[18px] p-[10px] hover:bg-primary-light"
+          className="text-brand-100 rounded-full items-center justify-between flex bg-brand-450 ml-[18px] p-[10px] hover:bg-brand-450-light"
           onClick={open}
         >
-          <span className="p-1 mr-3 rounded-full bg-offWhite">
+          <span className="p-1 mr-3 rounded-full bg-brand-100">
             <Icon
               id="plus-icon"
               color={"hsl(252deg, 94%, 67%)"}

@@ -9,7 +9,6 @@ function CheckboxSelect({ options }) {
     } else {
       setSelected(value);
     }
-   
   };
 
   return (
@@ -21,7 +20,7 @@ function CheckboxSelect({ options }) {
         >
           <input
             type="checkbox"
-            className="form-checkbox h-5 w-5 accent-primary default:bg-[black] before:bg-primary-dark-17"
+            className="form-checkbox h-5 w-5 accent-primary default:bg-[black] before:bg-brand-450-dark-17"
             checked={option.value === selected}
             onChange={() => handleOptionClick(option.value)}
           />

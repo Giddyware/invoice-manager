@@ -68,27 +68,28 @@ module.exports = {
 
   theme: {
     borderRadius: {
-      ...defaultTheme.borderRadius,
       pill: "100vmax",
       100: "0.8rem",
+      150: "0.5rem",
       200: "0.6rem",
       300: "0.4rem",
+      ...defaultTheme.borderRadius,
     },
 
     colors: {
       current: "currentColor",
       transparent: "transparent",
       inherit: "inherit",
-      neutral: { 100: "#ffffff", 900: "#000000" },
+      neutral: { 100: "hsl(0deg, 0%, 100%)", 900: "#000000" },
       brand: {
-        100: "#f4f7fd",
+        100: "hsl(0deg, 0%, 95%)",
         200: "#e4ebfa",
         300: "#a8a4ff",
         400: "#828fa3",
-        500: "#635fc7",
+        450: "hsl(252deg, 94%, 67%)",
+        500: "hsl(231deg, 20%, 27%)",
         600: "#3e3f4e",
         700: "#2b2c37",
-        800: "#20212c",
         900: "#000112",
       },
       accent: {
@@ -101,7 +102,7 @@ module.exports = {
     },
 
     fontFamily: {
-      sans: ["Plus Jakarta Sans", ...defaultTheme.fontFamily.sans],
+      sans: ["Spartan", ...defaultTheme.fontFamily.sans],
     },
 
     fontSize: {

@@ -240,7 +240,7 @@ const Form = () => {
         <button
           type="submit"
           // onClick={() => console.log("save button")}
-          className="px-[24px] py-[16px] rounded-full bg-primary capitalize hover:bg-primary-light text-[white]"
+          className="px-[24px] py-[16px] rounded-full bg-brand-450 capitalize hover:bg-brand-450-light text-neutral-100"
         >
           Save Changes
         </button>

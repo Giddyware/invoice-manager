@@ -6,7 +6,7 @@ import EmptyIllustratation from "../../assets/illustration-empty.svg";
 
 const Empty = () => {
   return (
-    <div className="flex flex-col bg-gray-light lg:flex-row">
+    <div className="flex flex-col bg-brand-100 lg:flex-row">
       <Header />
       <main className="px-[24px] h-screen py-[32px] md:py-[56px] md:px-[48px] lg:flex-1 lg:px-[140px] lg:py-[72px]">
         <Nav />

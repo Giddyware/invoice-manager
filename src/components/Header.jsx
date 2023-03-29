@@ -10,7 +10,7 @@ const Header = () => {
   const close = () => setShowDialog(false);
 
   return (
-    <div className="mb-[0px] flex items-center bg-gray-dark-27 lg:flex-col lg:min-h-screen lg:rounded-tr-[22px]">
+    <div className="mb-[0px] flex items-center bg-brand-500 lg:flex-col lg:min-h-screen lg:rounded-tr-[22px]">
       <Logo />
 
       <div className="p-[20px] lg:mt-auto">
