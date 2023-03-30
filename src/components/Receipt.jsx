@@ -4,9 +4,9 @@ import CircleDot from "./CircleDot";
 const classes = {
   base: "flex items-center justify-center w-[104px] font-bold p-2 rounded-150 md:mt-0",
   status: {
-    paid: "bg-success-light text-success",
-    pending: "bg-warning-light text-warning",
-    draft: "bg-draft-light text-draft",
+    paid: "bg-light-success text-accent-success",
+    pending: "bg-light-warning text-accent-warning",
+    draft: "bg-light-draft text-accent-draft",
   },
 };
 

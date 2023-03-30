@@ -3,13 +3,13 @@ import classNames from "classnames";
 const classes = {
   base: "w-2 h-2 rounded-full inline-block",
   status: {
-    paid: "bg-success",
-    pending: "bg-warning",
-    draft: "bg-draft",
+    paid: "bg-accent-success",
+    pending: "bg-accent-warning",
+    draft: "bg-accent-draft",
   },
 };
 
-const CircleDot = ({ status = "warning", children, ...props }) => {
+const CircleDot = ({ status = "light-warning", children, ...props }) => {
   return (
     <span
       className={classNames(`${classes.base} ${classes.status[status]}`)}

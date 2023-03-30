@@ -81,13 +81,13 @@ const ViewInvoice = () => {
               // to="edit-invoice"
               onClick={openSideModal}
             >
-              <button className="px-[24px] py-[16px] md:mr-[8px] bg-draft-light rounded-full capitalize text-primary-light hover:bg-gray">
+              <button className="px-[24px] py-[16px] md:mr-[8px] bg-light-draft rounded-full capitalize text-brand-400 hover:bg-gray">
                 edit
               </button>
             </Link>
             <button
               onClick={openCenterModal}
-              className="px-[24px] py-[16px] md:mr-[8px] rounded-full bg-urgent capitalize  hover:bg-urgent-light"
+              className="px-[24px] py-[16px] md:mr-[8px] rounded-full bg-accent-urgent capitalize  hover:bg-accent-urgent-light"
             >
               delete
             </button>
@@ -186,13 +186,13 @@ const ViewInvoice = () => {
           // to="/edit-invoice"
           onClick={openSideModal}
         >
-          <button className="px-[24px] py-[16px] bg-draft-light rounded-full capitalize text-primary-light">
+          <button className="px-[24px] py-[16px] bg-light-draft rounded-full capitalize text-brand-400">
             edit
           </button>
         </Link>
         <button
           onClick={openCenterModal}
-          className="px-[24px] py-[16px] rounded-full bg-urgent capitalize"
+          className="px-[24px] py-[16px] rounded-full bg-accent-urgent capitalize"
         >
           delete
         </button>

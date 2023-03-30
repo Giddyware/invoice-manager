@@ -37,7 +37,7 @@ const CenterModal = ({ id, close, showDialog }) => {
             <button
               onClick={close}
               ref={buttonRef}
-              className="px-[24px] py-[16px] mr-1 bg-draft-light rounded-full capitalize text-primary-light hover:cursor-pointer"
+              className="px-[24px] py-[16px] mr-1 bg-light-draft rounded-full capitalize text-brand-400 hover:cursor-pointer"
             >
               cancel
             </button>
@@ -48,7 +48,7 @@ const CenterModal = ({ id, close, showDialog }) => {
                 deleteInvioce(id);
                 navigate(-1);
               }}
-              className="px-[24px] py-[16px] rounded-full bg-urgent capitalize hover:cursor-pointer"
+              className="px-[24px] py-[16px] rounded-full bg-accent-urgent capitalize hover:cursor-pointer"
             >
               delete
             </button>

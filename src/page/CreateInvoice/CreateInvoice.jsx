@@ -437,7 +437,7 @@ const CreateInvoice = () => {
           <div className="w-full p-4 font-bold text-center rounded-3xl text-gray-dark-63 bg-gray hover:cursor-pointer">
             + Add New Item
           </div>
-          <div className="my-8 text-xs text-urgent">
+          <div className="my-8 text-xs text-light-urgent">
             <span className="block">- All fields must be added</span>
             <span className="block">- An item must be added</span>
             {formErrors.clientName && (
@@ -445,7 +445,7 @@ const CreateInvoice = () => {
             )}
           </div>
           <div className="flex justify-end font-medium">
-            <button className="px-[24px] py-[16px] md:mr-[8px] bg-draft-light rounded-full capitalize text-gray-dark-63 hover:bg-gray">
+            <button className="px-[24px] py-[16px] md:mr-[8px] bg-light-draft rounded-full capitalize text-gray-dark-63 hover:bg-gray">
               cancel
             </button>
             <button

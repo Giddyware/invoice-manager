@@ -69,8 +69,7 @@ export const Authentication = ({ showDialog, close }) => {
                 <BiCaretRight />
               </span>
               Digital plateform for{" "}
-              <span className="text-primary-light"> overseeing</span> your
-              invoice
+              <span className="text-brand-400"> overseeing</span> your invoice
             </h1>
           </div>
           <div className="flex-1 pl-20 pr-2 my-auto">
@@ -95,8 +94,8 @@ export const Authentication = ({ showDialog, close }) => {
                 </label>
               </div>
               <p className="mt-2 text-xs text-gray-dark-63 ">
-                <span className="font-medium">Well done!</span> Some success
-                message.
+                <span className="font-medium">Well done!</span> Some
+                light-success message.
               </p>
             </div>
             <div className="mb-8">
@@ -115,8 +114,8 @@ export const Authentication = ({ showDialog, close }) => {
                 </label>
               </div>
               <p className="mt-2 text-xs text-gray-dark-63 ">
-                <span className="font-medium">Well done!</span> Some success
-                message.
+                <span className="font-medium">Well done!</span> Some
+                light-success message.
               </p>
             </div>
             <div className="flex">
