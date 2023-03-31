@@ -68,7 +68,7 @@ const ViewInvoice = () => {
           <Icon id="arrow-left" />
           <h3 className="ml-[24px] font-bold text-[12px]">Go back</h3>
         </div>
-        <div className="mx-[24px] mt-[32px] mb-[16px] px-[24px] py-[24px]  rounded-150 flex items-baseline justify-between bg-neutral-100">
+        <div className="mx-[24px] mt-[32px] mb-[16px] px-[24px] py-[24px] hidden rounded-150 md:flex items-baseline justify-between bg-neutral-100">
           <div className="flex items-baseline justify-between flex-1 md:flex-shrink-0 md:flex-grow-0">
             <h2 className="text-gray-dark-63 md:mr-[16px]">status</h2>
             <Receipt status={`${status}`}>
