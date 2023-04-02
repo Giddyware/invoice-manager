@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Form from "../../components/Form";
+// import { useNavigate } from "react-router-dom";
+// import Form from "../../components/Form";
 import Input from "../../components/FormItem";
 import Header from "../../components/Header";
-import Icon from "../../components/Icon";
+// import Icon from "../../components/Icon";
 
 const CreateInvoice = () => {
   const [client, setClient] = useState({
@@ -62,7 +62,7 @@ const CreateInvoice = () => {
     total: 0,
   });
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();

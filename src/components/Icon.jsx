@@ -1,7 +1,7 @@
 import React from "react";
 import { images } from "../constants";
 import { FiPlus } from "react-icons/fi";
-import { AiFillCiCircle, AiOutlineArrowDown } from "react-icons/ai";
+import { AiFillCiCircle } from "react-icons/ai";
 
 const icons = {
   "arrow-down": images.arrowDownIcon,

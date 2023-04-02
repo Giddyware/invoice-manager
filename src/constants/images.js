@@ -12,8 +12,9 @@ import { ReactComponent as sunIcon } from "../assets/icon-sun.svg";
 import { ReactComponent as illustrationEmpty } from "../assets/illustration-empty.svg";
 
 import AvatarImage from "../assets/image-avatar.jpg";
-import bg from '../assets/bg.jpg'
+import bg from "../assets/bg.jpg";
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {
   logo,
   logoBg,
@@ -28,5 +29,5 @@ export default {
   sunIcon,
   illustrationEmpty,
   AvatarImage,
-  bg
+  bg,
 };

@@ -1,8 +1,8 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { AiFillDelete } from "react-icons/ai";
 
 const ItemList = ({ previtems }) => {
-  const [items, setItems] = useState(previtems);
+  // const [items, setItems] = useState(previtems);
 
   const onBlurHandler = (e) => {
     console.dir(e.target);

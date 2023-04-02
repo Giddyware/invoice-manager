@@ -1,5 +1,5 @@
 import Header from "../../components/Header";
-import Icon from "../../components/Icon";
+// import Icon from "../../components/Icon";
 import Nav from "../../components/Nav";
 
 import EmptyIllustratation from "../../assets/illustration-empty.svg";
