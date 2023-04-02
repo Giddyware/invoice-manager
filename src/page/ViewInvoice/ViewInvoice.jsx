@@ -9,17 +9,15 @@ import { useContext, useEffect, useState } from "react";
 import CenterModal from "../../components/CenterModal";
 import { InvoiceContext } from "../../context/invoiceContext";
 
-
-
-const invoiceDetail = [
-  {
-    id: "1",
-    itemName: "Banner Design",
-    price: "156.00",
-    qty: "1",
-  },
-  { id: "2", itemName: "Email Design", price: "400.00", qty: "2" },
-];
+// const invoiceDetail = [
+//   {
+//     id: "1",
+//     itemName: "Banner Design",
+//     price: "156.00",
+//     qty: "1",
+//   },
+//   { id: "2", itemName: "Email Design", price: "400.00", qty: "2" },
+// ];
 
 const ViewInvoice = () => {
   // CenterModal
@@ -42,7 +40,7 @@ const ViewInvoice = () => {
     // createdAt,
     paymentDue,
     description,
-    paymentTerms,
+    // paymentTerms,
     items,
     clientName,
     clientEmail,
