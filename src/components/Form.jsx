@@ -31,7 +31,7 @@ const Form = () => {
 
   function handleSubmit(event, name) {
     event.preventDefault();
-    console.log("log", client);
+    console.log("log", setClient);
   }
 
   const handleChange = (event) => {

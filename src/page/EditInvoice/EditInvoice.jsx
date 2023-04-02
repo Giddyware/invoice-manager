@@ -1,51 +1,51 @@
-import { useContext, useState } from "react";
-import { AiFillDelete } from "react-icons/ai";
-import { useNavigate } from "react-router-dom";
+// import { useContext, useState } from "react";
+// import { AiFillDelete } from "react-icons/ai";
+// import { useNavigate } from "react-router-dom";
 import Form from "../../components/Form";
-import Input from "../../components/FormItem";
+// import Input from "../../components/FormItem";
 import Header from "../../components/Header";
-import Icon from "../../components/Icon";
-import ItemList from "../../components/ItemList";
-import { InvoiceContext } from "../../context/invoiceContext";
+// import Icon from "../../components/Icon";
+// import ItemList from "../../components/ItemList";
+// import { InvoiceContext } from "../../context/invoiceContext";
 
 const EditInvoice = ({ invoice }) => {
-  const [client, setClient] = useState({ ...invoice });
+  // const [client, setClient] = useState({ ...invoice });
 
-  console.log("clie", client);
+  // console.log("clie", client);
 
   const id = invoice.id;
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  let paymentTermList = [
-    {
-      id: "1",
-      day: "1",
-      select: false,
-    },
-    {
-      id: "2",
-      day: "7",
-      select: false,
-    },
-    {
-      id: "3",
-      day: "14",
-      select: false,
-    },
-    {
-      id: "4",
-      day: "30",
-      select: false,
-    },
-  ];
+  // let paymentTermList = [
+  //   {
+  //     id: "1",
+  //     day: "1",
+  //     select: false,
+  //   },
+  //   {
+  //     id: "2",
+  //     day: "7",
+  //     select: false,
+  //   },
+  //   {
+  //     id: "3",
+  //     day: "14",
+  //     select: false,
+  //   },
+  //   {
+  //     id: "4",
+  //     day: "30",
+  //     select: false,
+  //   },
+  // ];
 
-  function handleSubmit(event, name) {
-    event.preventDefault();
-    console.log("log", client);
-  }
+  // function handleSubmit(event, name) {
+  //   event.preventDefault();
+  //   console.log("log", client);
+  // }
 
-  const handleChange = (event) => {};
+  // const handleChange = (event) => {};
 
   return (
     <div className="flex flex-col bg-white-light lg:flex-row">

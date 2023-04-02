@@ -1,16 +1,16 @@
 import { Dialog } from "@reach/dialog";
 
 import "@reach/dialog/styles.css";
-import { Tab, TabList, TabPanel, Tabs } from "@reach/tabs";
+// import { Tab, TabList, TabPanel, Tabs } from "@reach/tabs";
 import "@reach/tabs/styles.css";
 import { VisuallyHidden } from "@reach/visually-hidden";
 
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import EditInvoice from "../page/EditInvoice";
+// import { useState } from "react";
+// import { useNavigate } from "react-router-dom";
+// import EditInvoice from "../page/EditInvoice";
 
 const SideModal = ({ showSideModal, open, close, invoice, children }) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   return (
     <div>

@@ -1,13 +1,13 @@
-import { collection, getDocs } from "firebase/firestore";
-import { createContext, useContext, useEffect, useState } from "react";
+// import { collection, getDocs } from "firebase/firestore";
+import {  useContext, useState } from "react";
 // import { ClientsData } from "../../App";
-import { Auth } from "../../components/auth";
+// import { Auth } from "../../components/auth";
 import Card from "../../components/Card";
 import Header from "../../components/Header";
 import Nav from "../../components/Nav";
 import SideModal from "../../components/SlideModal";
-import { db } from "../../config/firebase";
-import Clients from "../../constants/data";
+// import { db } from "../../config/firebase";
+// import Clients from "../../constants/data";
 import { InvoiceContext } from "../../context/invoiceContext";
 import CreateInvoice from "../CreateInvoice/CreateInvoice";
 import Empty from "../Empty/Empty";

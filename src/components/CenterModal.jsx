@@ -1,5 +1,5 @@
 import { DialogContent, DialogOverlay } from "@reach/dialog";
-import { useContext, useRef, useState } from "react";
+import { useContext, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { InvoiceContext } from "../context/invoiceContext";
 
@@ -10,6 +10,7 @@ const CenterModal = ({ id, close, showDialog }) => {
   //   const open = () => setShowDialog(true);
   //   const close = () => setShowDialog(false);
   let navigate = useNavigate();
+  console.log(invoices);
 
   return (
     <div>
@@ -33,7 +34,7 @@ const CenterModal = ({ id, close, showDialog }) => {
             undone.
           </p>
 
-          <div className="text-neutral-100 absolute bottom-10 right-12">
+          <div className="absolute text-neutral-100 bottom-10 right-12">
             <button
               onClick={close}
               ref={buttonRef}
