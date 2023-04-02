@@ -9,7 +9,7 @@ import { useContext, useEffect, useState } from "react";
 import CenterModal from "../../components/CenterModal";
 import { InvoiceContext } from "../../context/invoiceContext";
 
-// import { db } from "../../config/firebase";
+
 
 const invoiceDetail = [
   {
