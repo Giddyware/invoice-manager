@@ -4,6 +4,7 @@ import { Authentication } from "./auth";
 // import { Auth } from "./auth";
 import Icon from "./Icon";
 import Logo from "./Logo";
+import ThemeModeToggler from "./ThemeModeToggler";
 
 const Header = () => {
   const [showDialog, setShowDialog] = useState(false);
@@ -14,7 +15,8 @@ const Header = () => {
       <Logo />
 
       <div className="p-[20px] lg:mt-auto">
-        <Icon className="" id="moon-icon" color="" size="" strokeWidth={""} />
+        <ThemeModeToggler />
+        
       </div>
       <div className="border-l-[0.01px] h-[64px] border-[#494E6E] lg:hidden"></div>
       <hr className="w-[64px] text-[#494E6E] md:hidden sm:hidden"></hr>
