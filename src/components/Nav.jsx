@@ -10,7 +10,7 @@ const Nav = ({ length, open }) => {
 
   return (
     <div className="flex items-baseline justify-between mt-1">
-      <div>
+      <div className="dark:text-neutral-100">
         <h1 className="font-bold text-[20px]">Invoices</h1>
         <p className="text-gray text-[12px]">
           <span className="mr-1 md:hidden">{length} invoices</span>
@@ -23,7 +23,7 @@ const Nav = ({ length, open }) => {
         <h2
           onMouseOver={openCheckedModal}
           onMouseOut={closeCheckedModal}
-          className="font-bold mr-[18px] hover:cursor-pointer"
+          className="font-bold mr-[18px] hover:cursor-pointer dark:text-neutral-100"
         >
           {showCheckedModal && (
             <CheckedModal

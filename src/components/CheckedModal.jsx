@@ -13,7 +13,7 @@ const CheckedModal = ({ close, showDialog }) => {
   ];
 
   return (
-    <div className="absolute w-[192px] drop-shadow-lg">
+    <div className="absolute w-[192px] drop-shadow-lg dark:bg-brand-800">
       <DialogContent
         style={{
           width: "192px",
@@ -26,7 +26,7 @@ const CheckedModal = ({ close, showDialog }) => {
           top: "-34px",
         }}
       >
-        <div className="container mx-auto mt-8 mb-4">
+        <div className="container mx-auto mt-8 mb-4 dark:bg-brand-800">
           <CheckboxSelect options={options} />
         </div>
       </DialogContent>
