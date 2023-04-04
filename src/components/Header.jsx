@@ -3,8 +3,8 @@ import { images } from "../constants";
 import { Authentication } from "./auth";
 // import { Auth } from "./auth";
 // import Icon from "./Icon";
-import Logo from "./Logo";
 import ThemeModeToggler from "./ThemeModeToggler";
+import Logo from "./Logo";
 
 const Header = () => {
   const [showDialog, setShowDialog] = useState(false);
