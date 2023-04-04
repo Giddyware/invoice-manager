@@ -24,7 +24,7 @@ const ThemeModeToggler = () => {
     setTheme(theme === "dark" ? "light" : "dark");
   };
   return (
-    <div onClick={handleThemeSwitch}>
+    <div onClick={handleThemeSwitch} className="cursor-pointer">
       {theme === "dark" ? (
         <Icon className="" id="sun-icon" color="" size="" strokeWidth={""} />
       ) : (
