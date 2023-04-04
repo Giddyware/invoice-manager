@@ -1,5 +1,5 @@
 // import { collection, getDocs } from "firebase/firestore";
-import {  useContext, useState } from "react";
+import { useContext, useState } from "react";
 // import { ClientsData } from "../../App";
 // import { Auth } from "../../components/auth";
 import Card from "../../components/Card";
@@ -53,7 +53,7 @@ const Home = () => {
       {length > 1 ? (
         <div className="flex flex-col bg-brand-100 lg:flex-row">
           <Header />
-          <main className="px-[24px] py-[32px] md:py-[56px] md:px-[48px] lg:flex-1 lg:px-[140px] lg:py-[72px] bg-brand-100">
+          <main className="px-[24px] py-[32px] md:py-[56px] md:px-[48px] lg:flex-1 lg:px-[140px] lg:py-[72px] bg-brand-100 dark:bg-brand-900">
             <Nav length={length} open={openSideModal} />
             <div className="mt-[32px] mb-[80px]">
               {invoices.map((invoice) => (

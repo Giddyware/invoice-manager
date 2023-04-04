@@ -26,6 +26,8 @@ const ThemeModeToggler = () => {
   return (
     <div onClick={handleThemeSwitch}>
       {theme === "dark" ? (
+        <Icon className="" id="sun-icon" color="" size="" strokeWidth={""} />
+      ) : (
         <Icon
           className=""
           // onClick={handleThemeSwitch}
@@ -34,8 +36,6 @@ const ThemeModeToggler = () => {
           size=""
           strokeWidth={""}
         />
-      ) : (
-        <Icon className="" id="sun-icon" color="" size="" strokeWidth={""} />
       )}
     </div>
   );
