@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Icon from "./Icon";
 
-const ThemeToggler = () => {
+const ThemeModeToggler = () => {
   const [theme, setTheme] = useState(null);
 
   useEffect(() => {
@@ -40,4 +40,4 @@ const ThemeToggler = () => {
     </div>
   );
 };
-export default ThemeToggler;
+export default ThemeModeToggler;
