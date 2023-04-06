@@ -241,7 +241,7 @@ const CreateInvoice = () => {
   // }
 
   return (
-    <div className="flex flex-col bg-white-light lg:flex-row">
+    <div className="flex flex-col bg-white-light dark:bg-neutral-900 lg:flex-row">
       <Header />
 
       <main className="px-[24px] h-full py-[32px] md:py-[56px] md:px-[48px] lg:flex-1 lg:px-[140px] lg:py-[72px]">
@@ -255,7 +255,10 @@ const CreateInvoice = () => {
 
         <h2 className="mt-[24px] font-bold text-[24px]">New Invoice</h2>
 
-        <form onSubmit={handleSubmit} className="text-gray-dark-63 font-[12px]">
+        <form
+          onSubmit={handleSubmit}
+          className="text-gray-dark-63 dark:text-neutral-100 font-[12px]"
+        >
           <h3 className="my-[24px] font-bold text-[12px] text-primary font">
             Bill From
           </h3>
