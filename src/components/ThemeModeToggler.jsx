@@ -55,23 +55,21 @@ const ThemeButton = () => {
     <button
       type="button"
       title="Toggle Theme"
-      className={classNames(
-        "aspect-square w-8 bg-cover bg-no-repeat",
-        theme === "light" ? (
-          <Icon className="" id="sun-icon" color="" size="" strokeWidth={""} />
-        ) : (
-          <Icon
-            className=""
-            // onClick={handleThemeSwitch}
-            id="moon-icon"
-            color=""
-            size=""
-            strokeWidth={""}
-          />
-        )
-      )}
+      className={classNames("aspect-square w-8 bg-cover bg-no-repeat")}
       onClick={() => setTheme(isdarkTheme ? "light" : "dark")}
     >
+      {theme === "light" ? (
+        <Icon className="" id="sun-icon" color="" size="" strokeWidth={""} />
+      ) : (
+        <Icon
+          className=""
+          // onClick={handleThemeSwitch}
+          id="moon-icon"
+          color=""
+          size=""
+          strokeWidth={""}
+        />
+      )}
       <span className="sr-only">Toggle Theme</span>
     </button>
   );
