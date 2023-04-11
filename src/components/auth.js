@@ -63,14 +63,27 @@ export const Authentication = ({ showDialog, close }) => {
             <VisuallyHidden>Close</VisuallyHidden>
             <span aria-hidden>X</span>
           </button>
-          <div className="flex-1 rounded-tl-lg rounded-bl-lg bgImg">
-            <h1 className="text-neutral-100 font-bold text-5xl max-w-min relative top-24 left-14 glass-effect px-8 py-14">
+          <div className="flex items-center justify-center flex-1 rounded-tl-lg rounded-bl-lg bgImg">
+            {/* <h1 className="relative px-8 text-5xl font-bold text-neutral-100 max-w-min top-24 left-14 glass-effect py-14">
               <span className="">
                 <BiCaretRight />
               </span>
               Digital plateform for{" "}
               <span className="text-brand-400"> overseeing</span> your invoice
-            </h1>
+            </h1> */}
+
+            <div className="px-10 py-12 my-auto glass-effect w-80">
+              {/* <div className=""> */}
+              <h1 className="font-bold text-neutral-100 text-700">
+                <BiCaretRight />
+                Digital plateform for
+                <span className="text-brand-400"> overseeing</span> your invoice
+              </h1>
+              <p className="text-neutral-100 m-3.5">
+                You will never know everthing <br /> But you will know more
+              </p>
+            </div>
+            {/* </div> */}
           </div>
           <div className="flex-1 pl-20 pr-2 my-auto">
             <h2 className="mb-3 text-3xl font-bold">Hey, hello👋</h2>
