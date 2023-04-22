@@ -159,11 +159,15 @@ export const Authentication = ({ showDialog, close }) => {
               className=" font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 w-full border-solid border-primary border-2"
             >
               <AiFillGoogleCircle className="text-[28px]" />
-              <span className="ml-3">Sign with Google</span>
+              <span className="ml-3">SignIn with Google</span>
             </button>
           </div>
         </DialogContent>
       </DialogOverlay>
     </div>
   );
+};
+
+export const SignUp = () => {
+  return <div>SignUp</div>;
 };
