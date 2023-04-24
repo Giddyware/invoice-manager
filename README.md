@@ -83,10 +83,4 @@ Submit your solution on the platform for the rest of the community to see. Follo
 
 Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it.
 
-## Sharing your solution
-
-There are multiple places you can share your solution:
-
-1. Share your solution page in the **#finished-projects** channel of the [Slack community](https://www.frontendmentor.io/slack).
-
 **Have fun building!** 🚀
