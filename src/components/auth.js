@@ -143,13 +143,13 @@ export const Authentication = ({ showDialog, close }) => {
             </div>
             <button
               type="button"
-              className="text-neutral-100 bg-gradient-to-br from-primary to-gray-dark-63 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 w-full mt-4"
+              className="text-neutral-900 bg-gradient-to-br from-primary to-gray-dark-63 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 w-full mt-4"
               onClick={signIn}
             >
               Login
             </button>
             <div className="my-10">
-              <hr className="mb-[10px] p-0 border-brand-100 overflow-visible text-center after:content-['Or'] after:inline-block after:relative after:top-[-12px] after:bg-neutral-100 after:px-[16px]"></hr>
+              <hr className="mb-[10px] p-0 border-brand-200 overflow-visible text-center after:content-['Or'] after:inline-block after:relative after:top-[-12px] after:bg-neutral-100 after:px-[16px]"></hr>
               {/* <span>Or</span> */}
               {/* <hr className="mb-[10px] p-0 border-brand-100  text-center"></hr> */}
             </div>
