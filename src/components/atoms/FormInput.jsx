@@ -1,11 +1,11 @@
 import classNames from "classnames";
-import { useFormContext } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 const FormInput = ({ name, className, type, ...rest }) => {
   const {
     register,
     formState: { errors },
-  } = useFormContext();
+  } = useForm();
 
   return (
     <input
