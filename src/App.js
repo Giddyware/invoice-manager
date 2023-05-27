@@ -5,7 +5,7 @@ import ViewInvoice from "./page/ViewInvoice/ViewInvoice";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { InvoiceProvider } from "./context/invoiceContext";
-import { Authentication, SignUp } from "./components/auth";
+import { Authentication } from "./components/auth";
 
 function App() {
   const router = createBrowserRouter([
@@ -14,7 +14,7 @@ function App() {
       element: <Authentication />,
     },
 
-    { path: "/signup", element: <SignUp /> },
+    // { path: "/signup", element: <SignUp /> },
     {
       path: "/empty",
       element: <Empty />,
