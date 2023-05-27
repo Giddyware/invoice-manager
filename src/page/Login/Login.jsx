@@ -45,7 +45,7 @@ export const Login = ({ showDialog, close }) => {
           right: "0",
           bottom: "0",
           margin: "38px auto",
-          width: "880px",
+          minWidth: "880px",
           display: "flex",
           // height: "650px",
         }}
@@ -69,43 +69,36 @@ export const Login = ({ showDialog, close }) => {
 
         <div className="flex items-center md:inline-flex sm:hidden justify-center flex-1 rounded-tl-lg rounded-bl-lg bgImg">
           <div className="px-10 py-12 my-auto glass-effect w-80">
-            {/* <div className=""> */}
             <h1 className="font-bold text-neutral-100 text-700">
-              <BiCaretRight />
-              Digital plateform for
+              <BiCaretRight className="mb-3" />
+              Digital platform for
               <span className="text-brand-400"> overseeing</span> your invoice
             </h1>
             <p className="text-neutral-100 m-3.5 text-100">
-              You will never know everthing <br /> But you will know more
+              You will never know everything <br /> But you will know more
             </p>
           </div>
-          {/* </div> */}
         </div>
-        <div className="flex-1 pl-20 pr-2  overflow-y-auto">
-          <h2 className="mb-3 text-3xl font-bold">Hey, hello👋</h2>
+        <div className="flex-1 pl-20 pr-4 flex flex-col gap-5 overflow-x-hidden overflow-y-auto">
+          <Text className="mb-3 text-3xl font-bold">Hey, hello👋</Text>
           <Text className="mb-8 text-gray-dark-61">
             It's great seeing you again, Welcome back😎
           </Text>
 
-          <div className="mb-8">
-            <div className="relative mb-2">
-              <FormField
-                type="email"
-                name="email"
-                label={"Email Address"}
-                className="col-span-6 mt-10"
-                autoComplete="username"
-              />
-            </div>
-          </div>
-          <div className="mb-8 relative">
-            <FormFieldPassword
-              name="password"
-              label={"Password"}
-              className="col-span-6"
-              autoComplete="new-password"
-            />
-          </div>
+          <FormField
+            type="email"
+            name="email"
+            label={"Email Address"}
+            className="col-span-6 mt-10"
+            autoComplete="username"
+          />
+
+          <FormFieldPassword
+            name="password"
+            label={"Password"}
+            className="col-span-6"
+            autoComplete="new-password"
+          />
 
           <button
             type="button"
@@ -114,11 +107,9 @@ export const Login = ({ showDialog, close }) => {
           >
             Login
           </button>
-          <div className="my-10">
-            <hr className="mb-[10px] p-0 border-brand-200 overflow-visible text-center after:content-['Or'] after:inline-block after:relative after:top-[-12px] after:bg-neutral-100 after:px-[16px]"></hr>
-            {/* <span>Or</span> */}
-            {/* <hr className="mb-[10px] p-0 border-brand-100  text-center"></hr> */}
-          </div>
+
+          <hr className="mb-[10px] p-0 border-brand-200 overflow-visible text-center after:content-['Or'] after:inline-block after:relative after:top-[-12px] after:bg-neutral-100 after:px-[16px]"></hr>
+
           <button
             type="button"
             onClick={signWithGoogle}
@@ -128,14 +119,12 @@ export const Login = ({ showDialog, close }) => {
             <span className="ml-3">SignIn with Google</span>
           </button>
 
-          <div className="flex mt-4 items-center justify-center col-span-6 gap-4 text-200">
-            <p>Don’t have an account?</p>
-            <div
-              className="text-blue-500 cursor-pointer"
-              onClick={() => changeStatus()}
-            >
-              Login
-            </div>
+          <div
+            onClick={() => changeStatus()}
+            className="flex cursor-pointer mt-4 items-center justify-center col-span-6 gap-4 text-200"
+          >
+            <Text>Don’t have an account?</Text>
+            <Text>Signup</Text>
           </div>
         </div>
       </DialogContent>

@@ -13,6 +13,7 @@ const RegisterForm = ({ close, showDialog }) => {
   const { status, changeStatus } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const signIn = async () => {
     try {
@@ -39,7 +40,7 @@ const RegisterForm = ({ close, showDialog }) => {
           right: "0",
           bottom: "0",
           margin: "38px auto",
-          width: "880px",
+          minWidth: "880px",
           display: "flex",
           // height: "650px",
         }}
@@ -65,60 +66,51 @@ const RegisterForm = ({ close, showDialog }) => {
           <div className="px-10 py-12 my-auto glass-effect w-80">
             {/* <div className=""> */}
             <h1 className="font-bold text-neutral-100 text-700">
-              <BiCaretRight />
-              Digital plateform for
+              <BiCaretRight className="mb-3" />
+              Digital platform for
               <span className="text-brand-400"> overseeing</span> your invoice
             </h1>
             <p className="text-neutral-100 m-3.5 text-100">
-              You will never know everthing <br /> But you will know more
+              You will never know everything <br /> But you will know more
             </p>
           </div>
           {/* </div> */}
         </div>
-        <div className="flex-1 pl-20 pr-2 overflow-y-auto">
-          <h2 className="mb-3 text-3xl font-bold">Hey, hello👋</h2>
+        <div className="flex-1 pl-20 pr-2  flex flex-col gap-5 overflow-y-auto overflow-x-hidden">
+          <Text className="mb-3 text-3xl font-bold">Hey, hello👋</Text>
           <Text className="mb-8 text-gray-dark-61">
-            Enter the infomation you entered while registering
+            Enter the information you entered while registering
           </Text>
 
-          <div className="mb-8">
-            <div className="relative mb-2">
-              <FormField
-                type="text"
-                name="userName"
-                label={"User Name"}
-                className="col-span-6 mt-10"
-                autoComplete="userName"
-              />
-            </div>
-          </div>
-          <div className="mb-8">
-            <div className="relative mb-2">
-              <FormField
-                type="email"
-                name="email"
-                label={"Email Address"}
-                className="col-span-6 mt-10"
-                autoComplete="username"
-              />
-            </div>
-          </div>
-          <div className="mb-8 relative">
-            <FormFieldPassword
-              name="password"
-              label={"Password"}
-              className="col-span-6"
-              autoComplete="new-password"
-            />
-          </div>
-          <div className="mb-8 relative">
-            <FormFieldPassword
-              name="confirmPassword"
-              label={"Confirm Password"}
-              className="col-span-6"
-              autoComplete="new-password"
-            />
-          </div>
+          <FormField
+            type="text"
+            name="userName"
+            label={"User Name"}
+            className="col-span-6"
+            autoComplete="userName"
+          />
+
+          <FormField
+            type="email"
+            name="email"
+            label={"Email Address"}
+            className="col-span-6"
+            autoComplete="username"
+          />
+
+          <FormFieldPassword
+            name="password"
+            label={"Password"}
+            className="col-span-6"
+            autoComplete="new-password"
+          />
+
+          <FormFieldPassword
+            name="confirmPassword"
+            label={"Confirm Password"}
+            className="col-span-6"
+            autoComplete="new-password"
+          />
 
           <button
             type="button"
@@ -127,14 +119,12 @@ const RegisterForm = ({ close, showDialog }) => {
           >
             SignUp
           </button>
-          <div className="flex mt-4 items-center justify-center col-span-6 gap-4 text-200">
-            <p>Already have an account?</p>
-            <div
-              className="text-blue-500 cursor-pointer"
-              onClick={() => changeStatus()}
-            >
-              Login
-            </div>
+          <div
+            onClick={() => changeStatus()}
+            className="flex mt-4 items-center cursor-pointer justify-center col-span-6 gap-4 text-200"
+          >
+            <Text>Already have an account?</Text>
+            <Text>Login</Text>
           </div>
         </div>
       </DialogContent>
