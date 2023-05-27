@@ -50,6 +50,7 @@ module.exports = {
         success: "hsl(162deg, 71%, 97%)",
         draft: "hsl(240deg, 5%, 96%)",
       },
+      ...defaultTheme.colors,
     },
 
     fontFamily: {

@@ -5,41 +5,22 @@ import ViewInvoice from "./page/ViewInvoice/ViewInvoice";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import { InvoiceProvider } from "./context/invoiceContext";
-import { Authentication, SignUp } from "./components/auth";
+import { Authentication } from "./components/auth";
 
 function App() {
-  // const router = createBrowserRouter([
-  //   {
-  //     path: "/",
-  //     element: <Home />,
-  //   },
-  //   {
-  //     path: "view-invoice/:id",
-  //     element: <ViewInvoice />,
-  //   },
-  //   {
-  //     path: "empty",
-  //     element: <Empty />,
-  //   },
-  //   {
-  //     path: "signup",
-  //     element: <Authentication />,
-  //   },
-  // ]);
-
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Authentication />,
     },
 
-    { path: "signup", element: <SignUp /> },
+    // { path: "/signup", element: <SignUp /> },
     {
-      path: "empty",
+      path: "/empty",
       element: <Empty />,
     },
     {
-      path: "view-invoice/:id",
+      path: "/view-invoice/:id",
       element: <ViewInvoice />,
     },
   ]);
